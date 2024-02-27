@@ -1,1 +1,0 @@
-<h1>Halaman User dengan id {{$idUser}} dengan nama {{$name}}</h1>
