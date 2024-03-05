@@ -16,7 +16,7 @@
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c93e352f-f491-4488-9aeb-aec1b5c73e46)
 
 6. Ubah kembali file controller UserController.php seperti pada gambar di bawah hanya bagian array pada $data
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1a30e0a5-c532-4feb-acb1-8e1bb9542d6c)\
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1a30e0a5-c532-4feb-acb1-8e1bb9542d6c)
 
 7. Simpan kode program Langkah 4 dan 5. Kemudian jalankan pada browser dan amati apa yang terjadi
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/829d69e1-042b-42b0-a632-b453fd7c8926)
