@@ -23,3 +23,6 @@
 
 8. Laporkan hasil Praktikum-1 ini dan commit perubahan pada git
 - Yang terjadi adalah error karena field password tidak dimasukkan di array fillable maka ketika melakukan create data menggunakan model field password dianggap tidak ada.
+
+<br/> <br/>
+fdsaf
