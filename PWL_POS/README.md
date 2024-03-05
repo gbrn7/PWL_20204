@@ -10,6 +10,7 @@
 
 3. Simpan kode program Langkah 1 dan 2, dan jalankan perintah web server. Kemudian jalankan link localhost/user pada browser dan amati apa yang terjadi
 
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c3aeeadb-5d71-4670-ba36-db82e3fa7274)
 
 5. Ubah file model UserModel.php seperti pada gambar di bawah ini pada bagian 
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c93e352f-f491-4488-9aeb-aec1b5c73e46)
