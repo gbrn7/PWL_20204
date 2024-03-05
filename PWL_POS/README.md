@@ -25,4 +25,53 @@
 - Yang terjadi adalah error karena field password tidak dimasukkan di array fillable maka ketika melakukan create data menggunakan model field password dianggap tidak ada.
 
 <br/> <br/>
-fdsaf
+### Praktikum 2.1 - Retrieving Single Models
+1. Buka file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/515c214a-5d25-4771-aca3-be1e3e187a3d)
+
+2. Buka file view dengan nama user.blade.php dan ubah script seperti gambar di bawah ini <br/>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/eb8bacd5-8329-4671-9fb6-d948ecac474a)
+
+3. Simpan kode program Langkah 1 dan 2. Kemudian jalankan pada browser dan amati 
+apa yang terjadi dan beri penjelasan dalam laporan
+- Yang terjadi user dengan id 1 ditampilkan
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/09df578d-0220-4480-8922-f4dff8c73ad1)
+
+4. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/369a7290-34ad-4379-b586-53998d74399b)
+
+5. Simpan kode program Langkah 4. Kemudian jalankan pada browser dan amati apa yang 
+terjadi dan beri penjelasan dalam laporan
+- Menampikan user dengan level id 1 pertama
+
+6. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b747adfc-7238-482e-9e7d-8f060f1d023d)
+
+7. Simpan kode program Langkah 6. Kemudian jalankan pada browser dan amati apa yang 
+terjadi dan beri penjelasan dalam laporan
+- Menampikan user dengan level id 1 pertama
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5babb914-5cdf-4fdf-8275-5199695ce8c7)
+
+8. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b4f6fd27-3657-4b2a-ba7b-7873f47dd3db)
+
+9. Simpan kode program Langkah 8. Kemudian pada browser dan amati apa yang terjadi 
+dan beri penjelasan dalam laporan
+- Script diatas menampilkan user dengan id 1 yang hanya mengampbil kolom username, nama
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/d07f2c8a-2655-4e7f-8615-ae713a259935)
+
+10. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/65dcb73b-e742-4ca5-b367-f4442e50272c)
+
+11. Simpan kode program Langkah 10. Kemudian jalankan pada browser dan amati apa 
+yang terjadi dan beri penjelasan dalam lapora
+- Yang terjadi browser menampikan halaman 404 karena tidak menemukan user dengan id 20
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e57bf894-657a-4fbd-9742-eadd0699ab3d)
+
+12. Laporkan hasil Praktikum-2.1 ini dan commit perubahan pada git.
+
+
