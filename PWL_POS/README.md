@@ -34,7 +34,7 @@
 
 3. Simpan kode program Langkah 1 dan 2. Kemudian jalankan pada browser dan amati 
 apa yang terjadi dan beri penjelasan dalam laporan
-- Yang terjadi user dengan id 1 ditampilkan
+- Yang terjadi user dengan id 1 ditampilkan <br/>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/09df578d-0220-4480-8922-f4dff8c73ad1)
 
 4. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
@@ -51,7 +51,7 @@ di bawah ini
 
 7. Simpan kode program Langkah 6. Kemudian jalankan pada browser dan amati apa yang 
 terjadi dan beri penjelasan dalam laporan
-- Menampikan user dengan level id 1 pertama
+- Menampikan user dengan level id 1 pertama  <br/>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5babb914-5cdf-4fdf-8275-5199695ce8c7)
 
 8. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
@@ -60,7 +60,7 @@ di bawah ini
 
 9. Simpan kode program Langkah 8. Kemudian pada browser dan amati apa yang terjadi 
 dan beri penjelasan dalam laporan
-- Script diatas menampilkan user dengan id 1 yang hanya mengampbil kolom username, nama
+- Script diatas menampilkan user dengan id 1 yang hanya mengampbil kolom username, nama  <br/>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/d07f2c8a-2655-4e7f-8615-ae713a259935)
 
 10. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
@@ -69,7 +69,7 @@ di bawah ini
 
 11. Simpan kode program Langkah 10. Kemudian jalankan pada browser dan amati apa 
 yang terjadi dan beri penjelasan dalam lapora
-- Yang terjadi browser menampikan halaman 404 karena tidak menemukan user dengan id 20
+- Yang terjadi browser menampikan halaman 404 karena tidak menemukan user dengan id 20  <br/>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e57bf894-657a-4fbd-9742-eadd0699ab3d)
 
 12. Laporkan hasil Praktikum-2.1 ini dan commit perubahan pada git.
