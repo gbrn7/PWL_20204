@@ -1,66 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Jobsheet 4 - MODEL dan ELOQUENT ORM
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Praktikum 1 - $fillable
 
-## About Laravel
+1. Buka file model dengan nama UserModel.php dan tambahkan $fillable seperti gambar di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a2531d3b-7b84-4379-bc1e-9dfa5c7e864e)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+2. Buka file controller dengan nama UserController.php dan ubah script untuk menambahkan data baru seperti gambar di bawah in
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f88a0998-79a7-417c-8908-1a40a472636d)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+3. Simpan kode program Langkah 1 dan 2, dan jalankan perintah web server. Kemudian jalankan link localhost/user pada browser
+   dan amati apa yang terjadi <br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c3aeeadb-5d71-4670-ba36-db82e3fa7274)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+5. Ubah file model UserModel.php seperti pada gambar di bawah ini pada bagian 
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c93e352f-f491-4488-9aeb-aec1b5c73e46)
 
-## Learning Laravel
+6. Ubah kembali file controller UserController.php seperti pada gambar di bawah hanya bagian array pada $data
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1a30e0a5-c532-4feb-acb1-8e1bb9542d6c)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+7. Simpan kode program Langkah 4 dan 5. Kemudian jalankan pada browser dan amati apa yang terjadi
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/829d69e1-042b-42b0-a632-b453fd7c8926)
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+8. Laporkan hasil Praktikum-1 ini dan commit perubahan pada git
+- Yang terjadi adalah error karena field password tidak dimasukkan di array fillable maka ketika melakukan create data menggunakan model field password dianggap tidak ada.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<br/> <br/>
+### Praktikum 2.1 - Retrieving Single Models
+1. Buka file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/515c214a-5d25-4771-aca3-be1e3e187a3d)
 
-## Laravel Sponsors
+2. Buka file view dengan nama user.blade.php dan ubah script seperti gambar di bawah ini <br/>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/eb8bacd5-8329-4671-9fb6-d948ecac474a)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+3. Simpan kode program Langkah 1 dan 2. Kemudian jalankan pada browser dan amati 
+apa yang terjadi dan beri penjelasan dalam laporan
+- Yang terjadi user dengan id 1 ditampilkan <br/>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/09df578d-0220-4480-8922-f4dff8c73ad1)
 
-### Premium Partners
+4. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/369a7290-34ad-4379-b586-53998d74399b)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+5. Simpan kode program Langkah 4. Kemudian jalankan pada browser dan amati apa yang 
+terjadi dan beri penjelasan dalam laporan
+- Menampikan user dengan level id 1 pertama
 
-## Contributing
+6. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b747adfc-7238-482e-9e7d-8f060f1d023d)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+7. Simpan kode program Langkah 6. Kemudian jalankan pada browser dan amati apa yang 
+terjadi dan beri penjelasan dalam laporan
+- Menampikan user dengan level id 1 pertama  <br/>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5babb914-5cdf-4fdf-8275-5199695ce8c7)
 
-## Code of Conduct
+8. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b4f6fd27-3657-4b2a-ba7b-7873f47dd3db)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+9. Simpan kode program Langkah 8. Kemudian pada browser dan amati apa yang terjadi 
+dan beri penjelasan dalam laporan
+- Script diatas menampilkan user dengan id 1 yang hanya mengampbil kolom username, nama  <br/>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/d07f2c8a-2655-4e7f-8615-ae713a259935)
 
-## Security Vulnerabilities
+10. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar 
+di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/65dcb73b-e742-4ca5-b367-f4442e50272c)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+11. Simpan kode program Langkah 10. Kemudian jalankan pada browser dan amati apa 
+yang terjadi dan beri penjelasan dalam lapora
+- Yang terjadi browser menampikan halaman 404 karena tidak menemukan user dengan id 20  <br/>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e57bf894-657a-4fbd-9742-eadd0699ab3d)
 
-## License
+12. Laporkan hasil Praktikum-2.1 ini dan commit perubahan pada git.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
