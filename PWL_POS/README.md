@@ -1,4 +1,4 @@
-# Jobsheet 4 - MODEL dan ELOQUENT ORM
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c85e188a-fa78-4e44-900b-10391d31335a)# Jobsheet 4 - MODEL dan ELOQUENT ORM
 
 ### Praktikum 1 - $fillable
 
@@ -76,8 +76,23 @@
 
 11. Simpan kode program Langkah 10. Kemudian jalankan pada browser dan amati apa
     yang terjadi dan beri penjelasan dalam lapora
-
+    
 -   Yang terjadi browser menampikan halaman 404 karena tidak menemukan user dengan id 20 <br/>
     ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e57bf894-657a-4fbd-9742-eadd0699ab3d)
 
 12. Laporkan hasil Praktikum-2.1 ini dan commit perubahan pada git.
+
+### Praktikum 2.2 - Not Found Exceptions
+1.	Ubah file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/d1b8be97-91ea-4875-afda-872d2082c92d)
+2.	Simpan kode program Langkah 1. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
+Jawaban
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bfa47616-58fe-45b4-91c4-9f65cae9d358)
+Kode diatas adalah perintah untuk mencari use dengan id 1
+3.	Ubah file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
+   ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e78bd130-5b98-407b-83b8-b9055088832d)
+
+4.	Simpan kode program Langkah 3. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
+Jawaban
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1cf5322d-af96-442c-8218-773efce3a03a)
+Yang terjadi adalah karena user dengan username ‘manager9’ tidak ditemukan maka browser mengembalikan halaman ‘NOT FOUND’
