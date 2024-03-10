@@ -88,10 +88,13 @@
 2.	Simpan kode program Langkah 1. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bfa47616-58fe-45b4-91c4-9f65cae9d358) <br>
 Kode diatas adalah perintah untuk mencari use dengan id 1
-4.	Ubah file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
+3. Ubah file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
    ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e78bd130-5b98-407b-83b8-b9055088832d)
+4.	Simpan kode program Langkah 3. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
+Jawaban
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/6e8ed558-f94e-4a1b-8988-210a6dcbaffc)
 
-5.	Simpan kode program Langkah 3. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
+5. Simpan kode program Langkah 3. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
 Jawaban
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1cf5322d-af96-442c-8218-773efce3a03a) <br>
 Yang terjadi adalah karena user dengan username ‘manager9’ tidak ditemukan maka browser mengembalikan halaman ‘NOT FOUND’
