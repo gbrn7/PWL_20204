@@ -86,7 +86,7 @@
 1.	Ubah file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/d1b8be97-91ea-4875-afda-872d2082c92d)
 2.	Simpan kode program Langkah 1. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bfa47616-58fe-45b4-91c4-9f65cae9d358)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bfa47616-58fe-45b4-91c4-9f65cae9d358) <br>
 Kode diatas adalah perintah untuk mencari use dengan id 1
 4.	Ubah file controller dengan nama UserController.php dan ubah script seperti gambar di bawah ini
    ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e78bd130-5b98-407b-83b8-b9055088832d)
