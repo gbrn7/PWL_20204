@@ -94,5 +94,5 @@ Kode diatas adalah perintah untuk mencari use dengan id 1
 
 4.	Simpan kode program Langkah 3. Kemudian jalankan pada browser dan amati apa yang terjadi dan beri penjelasan dalam laporan
 Jawaban
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1cf5322d-af96-442c-8218-773efce3a03a)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1cf5322d-af96-442c-8218-773efce3a03a) <br>
 Yang terjadi adalah karena user dengan username ‘manager9’ tidak ditemukan maka browser mengembalikan halaman ‘NOT FOUND’
