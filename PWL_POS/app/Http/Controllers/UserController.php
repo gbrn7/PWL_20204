@@ -130,7 +130,10 @@ class UserController extends Controller
 
 
 
-        $user = userModel::all();
+        // $user = userModel::all();
+
+        $user = userModel::with('level')->get();
+
         return view('user', ['data' => $user]);
 
     }
@@ -182,4 +185,6 @@ class UserController extends Controller
         return redirect('/user');
 
     }
+
+
 }
