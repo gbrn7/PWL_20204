@@ -1,3 +1,11 @@
+##JOBSHEET 4 MODEL dan ELOQUENT ORM
+
+Nama : Muhammad Rayhan Gibran
+Mata Kuliah : Pemrograman Web Lanjut (PWL)
+Program Studi : D4 – Teknik Informatika / D4 – Sistem Informasi Bisnis
+Semester : 4 (empat) / 6 (enam) 
+Pertemuan ke- : 4 (Empat)
+
 
 ### Praktikum 1 - $fillable
 
