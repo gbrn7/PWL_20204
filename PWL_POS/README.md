@@ -1,4 +1,3 @@
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/05f2fa5d-7a70-48b0-bd15-6bf4e807dae8)![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5870968d-13dc-4c42-b3b7-6cd464f47cb1)![image](https://github.com/gbrn7/PWL_2024/assets/127575934/0087fcf8-dd52-4bb3-9dc3-1633b5f1be03)![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c85e188a-fa78-4e44-900b-10391d31335a)# Jobsheet 4 - MODEL dan ELOQUENT ORM
 
 ### Praktikum 1 - $fillable
 
