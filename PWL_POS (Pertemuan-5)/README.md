@@ -1,4 +1,4 @@
-## JOBSHEET 5 MODEL dan ELOQUENT ORM
+## JOBSHEET 5 Blade View, Web Templating(AdminLTE), Datatables
 
 Nama : Muhammad Rayhan Gibran <br>
 Mata Kuliah : Pemrograman Web Lanjut (PWL) <br>
