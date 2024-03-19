@@ -17,6 +17,8 @@ Semester : 4 (empat) / 6 (enam)  <br>
 
 ## Tugas Praktikum
 ### 1. Tambahkan button Add di halaman manage kategori, yang mengarah ke create kategori baru
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/95521942-e0dd-4937-9ec8-5391f76c35c6) <br/>
+
 ### 2. Tambahkan menu untuk halaman manage kategori, di daftar menu navbar
 ### 3. Tambahkan action edit di datatables dan buat halaman edit serta controllernya
 ### 4. Tambahkan action delete di datatables serta controllernya
