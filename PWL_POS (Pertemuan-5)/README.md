@@ -11,7 +11,7 @@ Semester : 4 (empat) / 6 (enam)  <br>
 ### Praktikum 2 – Integrasi dengan DataTables
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/264979bc-0843-4676-8f99-2022389c5fe5)
 
-## Praktikum 3 
+### Praktikum 3 - Membuat form kemudian menyimpan data dalam database
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/7bb3e236-c72a-4b35-b51a-9a2b5df3b5dd)
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a26065c7-0e68-4767-8355-9901da1d2b96)
 
