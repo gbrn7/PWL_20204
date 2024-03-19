@@ -3,7 +3,7 @@ Mata Kuliah : Pemrograman Web Lanjut (PWL) <br>
 Program Studi : D4 – Teknik Informatika / D4 – Sistem Informasi Bisnis <br>
 Semester : 4 (empat) / 6 (enam)  <br>
 
-## Hasil JOBSHEET 5 Blade View, Web Templating(AdminLTE), Datatables
+# Hasil JOBSHEET 5 Blade View, Web Templating(AdminLTE), Datatables
 
 ### Praktikum 1 – Integrasi Laravel dengan AdminLte3
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/73bc41e7-232a-4450-a734-f38397a23ea9)
@@ -20,6 +20,8 @@ Semester : 4 (empat) / 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/95521942-e0dd-4937-9ec8-5391f76c35c6) <br/>
 
 ### 2. Tambahkan menu untuk halaman manage kategori, di daftar menu navbar
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4005a5a8-5060-4471-990b-a95f20c58e0e)
+
 ### 3. Tambahkan action edit di datatables dan buat halaman edit serta controllernya
 ### 4. Tambahkan action delete di datatables serta controllernya
 
