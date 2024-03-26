@@ -23,7 +23,15 @@ Semester : 4 (empat) / 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4005a5a8-5060-4471-990b-a95f20c58e0e)
 
 ### 3. Tambahkan action edit di datatables dan buat halaman edit serta controllernya
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4103d5f2-cc36-46b4-a596-f80df2797e0c)
+
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/898b65f8-0396-4492-a9f3-ff8e8fe57601)
+
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f109a33a-190b-41e2-bb6d-3fd349934e5c)
+
 ### 4. Tambahkan action delete di datatables serta controllernya
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/daacd990-d955-49a1-a3f0-f51093a832d2)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/57863788-bcfe-42ca-a99d-9dfcb952f80b)
 
 
 
