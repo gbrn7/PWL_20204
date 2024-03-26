@@ -32,6 +32,7 @@ class KategoriController extends Controller
         // $data = DB::table('m_kategori')->get();
         
         // return view('kategori', ['data' => $data]);
+        // dd(KategoriModel::all());
 
         return $dataTable->render('kategori.index');
     }
@@ -49,5 +50,35 @@ class KategoriController extends Controller
         ]);
 
         return redirect('/kategori');
+    }
+
+    public function editCategory($id)
+    {
+        $category = KategoriModel::find($id);
+
+        return view('kategori.edit', [
+            'category' => $category,
+        ]);
+    }
+
+    public function storeCategory($id, Request $request)
+    {
+        $validated = $request->validate([
+            'kategori_kode' => 'required|string',
+            'kategori_nama' => 'required|string',
+        ]);
+
+        $category = KategoriModel::find($id);
+        $category->update($validated);
+
+        return redirect('/kategori')->with('success', 'Berhasil Menghapus kategori');
+
+    }
+
+    public function deleteCategory($id){
+        $category = KategoriModel::find($id);
+        $category->delete($category);
+
+        return redirect('/kategori')->with('success', 'Berhasil Menghapus kategori');
     }
 }

@@ -7,6 +7,11 @@
 @section('content')
 <div class="container">
   <div class="card">
+    @if(session()->has('success'))
+    <div class="alert alert-success font-font-weight-bold">
+      {{session('success')}}
+    </div>
+    @endif
     <div class="card-header">Manage Kategori</div>
     <div class="card-body">
       <a href="/kategori/create" class="btn btn-primary mb-2">Add Kategori</a>
