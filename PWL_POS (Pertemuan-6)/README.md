@@ -1,39 +1,59 @@
 Nama : Muhammad Rayhan Gibran <br>
 Mata Kuliah : Pemrograman Web Lanjut (PWL) <br>
 Program Studi : D4 – Teknik Informatika / D4 – Sistem Informasi Bisnis <br>
-Semester : 4 (empat) / 6 (enam)  <br>
+Semester : 6 (enam)  <br>
 
-# Hasil JOBSHEET 5 Blade View, Web Templating(AdminLTE), Datatables
+## Hasil JOBSHEET 6 Template Form (AdminLTE), Server Validation, Client Validation, CRUD
 
-### Praktikum 1 – Integrasi Laravel dengan AdminLte3
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/73bc41e7-232a-4450-a734-f38397a23ea9)
+### Praktikum 1 – Template Form (AdminLTE)
+- Eksplorasi jenis form pada adminLTE dan coba terapkan yang sesuai untuk studi kasus 
+POS PWL, buatlah form untuk tabel m_user dan m_leveL
+Jawaban </br>
+1. form table m_user </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a403ffcf-67e9-4bae-85eb-27649577de99)
+2. form table m_level </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5a114852-1bfa-47fb-9871-3745dca2e613)
 
-### Praktikum 2 – Integrasi dengan DataTables
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/264979bc-0843-4676-8f99-2022389c5fe5)
+### Praktikum 2 – VALIDASI PADA SERVER
+- Tulis perbedaan penggunaan validate dengan validateWithBag!
+    - Validate menyimpan pesan error pada key yang sama dengan nama key inputnya 
+    - ValidateWithBag akan menyimpan pesan error pada sebuah tas atau variabel yang bernama
+- Hasil Praktikum
+  ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3046d55d-a34e-4c68-a3dd-b761886f95a4)
 
-### Praktikum 3 - Membuat form kemudian menyimpan data dalam database
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/7bb3e236-c72a-4b35-b51a-9a2b5df3b5dd)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a26065c7-0e68-4767-8355-9901da1d2b96)
+### Praktikum 3 – FORM REQUEST VALIDATION
+-  Terapkan validasi juga pada tabel m_user dan m_level.
+1. m_user </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/425f544d-9706-4f8b-94a4-cb83a35c4434) </br>
 
-## Tugas Praktikum
-### 1. Tambahkan button Add di halaman manage kategori, yang mengarah ke create kategori baru
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/95521942-e0dd-4937-9ec8-5391f76c35c6) <br/>
+1. m_level </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/54d8cd89-87ff-4755-bc9b-95e2f9644cb5)
 
-### 2. Tambahkan menu untuk halaman manage kategori, di daftar menu navbar
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4005a5a8-5060-4471-990b-a95f20c58e0e)
-
-### 3. Tambahkan action edit di datatables dan buat halaman edit serta controllernya
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4103d5f2-cc36-46b4-a596-f80df2797e0c)
-
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/898b65f8-0396-4492-a9f3-ff8e8fe57601)
-
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f109a33a-190b-41e2-bb6d-3fd349934e5c)
-
-### 4. Tambahkan action delete di datatables serta controllernya
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/daacd990-d955-49a1-a3f0-f51093a832d2)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/57863788-bcfe-42ca-a99d-9dfcb952f80b)
+### Praktikum 4 – CRUD(create, read, update, delete) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/005a0646-6321-4cc7-afcd-b94106ce7884)
 
 
+### Tugas
+1. Coba tampilkan level_id pada halaman web tersebut dimana field ini merupakan foreign key </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f9b2b8d8-0368-4c2b-ac40-0ba72299c2f3)
+
+2. Modifikasi dengan tema/ template kesukaan Anda </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/eb70df41-7ec6-47f9-966f-b7d37447dc51) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/79766e5e-1954-4439-8a29-dfb0ea238ced) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/29dab3fc-7fb8-4837-bf1b-ea94b224deb5) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/49c9486a-851d-4423-9f3a-d2403eac99cb) </br>
+
+4. Apa fungsi $request->validate, $error dan alert yang ada pada halaman CRUD tersebut </br>
+Jawaban </br>
+a. Fungsi $request->validate : untuk memvalidasi data request yang dikirimkan client </br>
+b. Fungsi $error : Menampung pesan error dari validasi data request </br>
+c. Fungsi alert : alert merupakan class dari boostrap untuk melakukan styling sebuah elemen yang digunakan untuk tempat pesan atau feedback tertentu </br>
+
+
+
+
+
+    
 
 
 
