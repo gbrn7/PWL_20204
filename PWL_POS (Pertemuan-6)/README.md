@@ -30,7 +30,8 @@ Jawaban </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/54d8cd89-87ff-4755-bc9b-95e2f9644cb5)
 
 ### Praktikum 4 – CRUD(create, read, update, delete) </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/ef44af37-a039-4484-bee3-faa51354955f)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/268ccf9e-a1e4-4518-80ec-9432e305c032)
+
 
 
 
