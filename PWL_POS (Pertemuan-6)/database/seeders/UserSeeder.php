@@ -20,21 +20,21 @@ class UserSeeder extends Seeder
                 'level_id' => 1,
                 'username' => 'admin',
                 'nama' => 'Administrator',
-                'Password' => Hash::make('12345'),
+                'password' => Hash::make('12345'),
             ],
             [
                 'user_id' => 2,
                 'level_id' => 2,
                 'username' => 'manager',
                 'nama' => 'Manager',
-                'Password' => Hash::make('12345'),
+                'password' => Hash::make('12345'),
             ],
             [
                 'user_id' => 3,
                 'level_id' => 3,
                 'username' => 'staff',
                 'nama' => 'Staff/Kasir',
-                'Password' => Hash::make('12345'),
+                'password' => Hash::make('12345'),
             ],
         ];
 

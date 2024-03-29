@@ -326,7 +326,12 @@ return [
             'text' => 'Manage Kategori',
             'url' => 'kategori',
             'icon' => 'fas fa-list',
-            'label' => 4,
+            'label_color' => 'success',
+        ],
+        [
+            'text' => 'Manage User',
+            'url' => 'm_user',
+            'icon' => 'fas fa-user',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],

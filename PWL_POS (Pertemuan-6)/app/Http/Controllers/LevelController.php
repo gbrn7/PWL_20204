@@ -31,4 +31,9 @@ class LevelController extends Controller
 
         return view('level', ['data' => $data]);
     }
+
+    public function create()
+    {
+        return view('level.create');
+    }
 }

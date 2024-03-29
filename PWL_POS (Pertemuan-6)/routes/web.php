@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,31 +25,33 @@ Route::get('/adminlte', function () {
     return view('welcome_admin_lte');
 });
 
+Route::group(['prefix' => 'user'], function(){
+    Route::get('/', [UserController::class, 'index'])->name('user');
+    Route::get('/tambah', [UserController::class, 'tambah']);
+    Route::post('/tambah_simpan', [UserController::class, 'tambah_simpan']);
+    Route::get('/ubah/{id}', [UserController::class, 'ubah']);
+    Route::put('/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
+    Route::get('/hapus/{id}', [UserController::class, 'hapus']);
+});
 
-Route::get('/level', [LevelController::class, 'index'])->name('home');
+Route::group(['prefix' => 'level'], function(){
+    Route::get('/', [LevelController::class, 'index']);
+    Route::get('/create', [LevelController::class, 'create'])->name('level.create');
+});
 
-Route::get('/kategori', [KategoriController::class, 'index']);
+Route::group(['prefix' => 'user'], function() {
+    Route::get('/create', [UserController::class, 'create'])->name('user.create');
 
-Route::get('/user', [UserController::class, 'index'])->name('user');
+});
 
-Route::get('/user/tambah', [UserController::class, 'tambah']);
+Route::group(['prefix' => 'kategori'], function(){
+    Route::get('/', [KategoriController::class, 'index']);
+    Route::get('/create', [KategoriController::class, 'create']);
+    Route::post('', [KategoriController::class, 'store']);
+    Route::get('/edit/{id}', [KategoriController::class, 'editCategory']);
+    Route::post('/edit/{id}', [KategoriController::class, 'storeCategory']);
+    Route::get('/delete/{id}', [KategoriController::class, 'deleteCategory'])->name('kategori.delete');
+});
 
-Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
+Route::resource('m_user', POSController::class);
 
-Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
-
-Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
-
-Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
-
-Route::get('/kategori', [KategoriController::class, 'index']);
-
-Route::get('/kategori/create', [KategoriController::class, 'create']);
-
-Route::post('/kategori', [KategoriController::class, 'store']);
-
-Route::get('/kategori/edit/{id}', [KategoriController::class, 'editCategory']);
-
-Route::post('/kategori/edit/{id}', [KategoriController::class, 'storeCategory']);
-
-Route::get('/kategori/delete/{id}', [KategoriController::class, 'deleteCategory'])->name('kategori.delete');
