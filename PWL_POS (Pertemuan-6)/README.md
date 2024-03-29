@@ -18,6 +18,9 @@ Jawaban </br>
 - Tulis perbedaan penggunaan validate dengan validateWithBag!
     - Validate menyimpan pesan error pada key yang sama dengan nama key inputnya 
     - ValidateWithBag akan menyimpan pesan error pada sebuah tas atau variabel yang bernama
+- Hasil Praktikum
+  ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3046d55d-a34e-4c68-a3dd-b761886f95a4)
+
     
 
 
