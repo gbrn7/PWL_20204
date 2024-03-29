@@ -23,7 +23,7 @@ Jawaban </br>
 
 ### Praktikum 3 – FORM REQUEST VALIDATION
 -  Terapkan validasi juga pada tabel m_user dan m_level.
-1. m_user
+1. m_user </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/425f544d-9706-4f8b-94a4-cb83a35c4434) </br>
 
 1. m_level </br>
