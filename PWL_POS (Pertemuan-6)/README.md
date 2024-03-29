@@ -38,10 +38,10 @@ Jawaban </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f9b2b8d8-0368-4c2b-ac40-0ba72299c2f3)
 
 3. Apa fungsi $request->validate, $error dan alert yang ada pada halaman CRUD tersebut </br>
-Jawaban
-a. Fungsi $request->validate : untuk memvalidasi data request yang dikirimkan client
-b. Fungsi $error : Menampung pesan error dari validasi data request
-c. Fungsi alert : alert merupakan class dari boostrap untuk melakukan styling sebuah elemen yang digunakan untuk tempat pesan atau feedback tertentu
+Jawaban </br>
+a. Fungsi $request->validate : untuk memvalidasi data request yang dikirimkan client </br>
+b. Fungsi $error : Menampung pesan error dari validasi data request </br>
+c. Fungsi alert : alert merupakan class dari boostrap untuk melakukan styling sebuah elemen yang digunakan untuk tempat pesan atau feedback tertentu </br>
 
 
 
