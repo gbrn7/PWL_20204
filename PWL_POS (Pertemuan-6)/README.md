@@ -14,6 +14,10 @@ Jawaban </br>
 2. form table m_level </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5a114852-1bfa-47fb-9871-3745dca2e613)
 
+### Praktikum 2 – VALIDASI PADA SERVER
+- Tulis perbedaan penggunaan validate dengan validateWithBag!
+
+
 
 
 
