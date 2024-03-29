@@ -37,7 +37,13 @@ Jawaban </br>
 1. Coba tampilkan level_id pada halaman web tersebut dimana field ini merupakan foreign key </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f9b2b8d8-0368-4c2b-ac40-0ba72299c2f3)
 
-3. Apa fungsi $request->validate, $error dan alert yang ada pada halaman CRUD tersebut </br>
+2. Modifikasi dengan tema/ template kesukaan Anda </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/eb70df41-7ec6-47f9-966f-b7d37447dc51) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/79766e5e-1954-4439-8a29-dfb0ea238ced) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/29dab3fc-7fb8-4837-bf1b-ea94b224deb5) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/49c9486a-851d-4423-9f3a-d2403eac99cb) </br>
+
+4. Apa fungsi $request->validate, $error dan alert yang ada pada halaman CRUD tersebut </br>
 Jawaban </br>
 a. Fungsi $request->validate : untuk memvalidasi data request yang dikirimkan client </br>
 b. Fungsi $error : Menampung pesan error dari validasi data request </br>
