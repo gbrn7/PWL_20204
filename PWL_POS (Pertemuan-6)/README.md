@@ -16,7 +16,9 @@ Jawaban </br>
 
 ### Praktikum 2 – VALIDASI PADA SERVER
 - Tulis perbedaan penggunaan validate dengan validateWithBag!
-
+    - Validate menyimpan pesan error pada key yang sama dengan nama key inputnya 
+    - ValidateWithBag akan menyimpan pesan error pada sebuah tas atau variabel yang bernama
+    
 
 
 
