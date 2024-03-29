@@ -21,6 +21,16 @@ Jawaban </br>
 - Hasil Praktikum
   ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3046d55d-a34e-4c68-a3dd-b761886f95a4)
 
+### Praktikum 3 – FORM REQUEST VALIDATION
+-  Terapkan validasi juga pada tabel m_user dan m_level.
+1. m_user
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/425f544d-9706-4f8b-94a4-cb83a35c4434)
+
+1. m_level
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/54d8cd89-87ff-4755-bc9b-95e2f9644cb5)
+
+
+
     
 
 
