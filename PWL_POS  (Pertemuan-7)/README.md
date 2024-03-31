@@ -16,7 +16,11 @@ Semester : 6 (enam)  <br>
 mengetikkan id yang salah contoh http://localhost/PWL_POS/public/user/100 amati 
 apa yang terjadi, dan laporkan!!! </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/52430abc-62b4-4256-8009-a9691ec3eff8) </br>
-yang terjadi view menampilkan pesan 'Data yang anda cari tidak ditemukan'
+yang terjadi view menampilkan pesan 'Data yang anda cari tidak ditemukan' </br>
+- Langkah 20: Sekarang kalian coba untuk mengedit data user di browser, amati, pahami, dan laporkan!
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bd305655-8a21-4b58-a507-cb1f23e14d8b)
+Yang terjadi data di update sesuai data baru
+
 
 
 
