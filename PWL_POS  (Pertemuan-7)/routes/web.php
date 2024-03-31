@@ -4,6 +4,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,21 +18,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/adminlte', function () {
     return view('welcome_admin_lte');
 });
 
+Route::get('/template', function () {
+    return view('layouts.template');
+});
+
 Route::group(['prefix' => 'user'], function(){
-    Route::get('/', [UserController::class, 'index'])->name('user');
-    Route::get('/tambah', [UserController::class, 'tambah']);
-    Route::post('/tambah_simpan', [UserController::class, 'tambah_simpan']);
-    Route::get('/ubah/{id}', [UserController::class, 'ubah']);
-    Route::put('/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
-    Route::get('/hapus/{id}', [UserController::class, 'hapus']);
+    Route::get('/', [UserController::class, 'index'])->name('user.index');
+    Route::post('/list', [UserController::class, 'list'])->name('user.list');
+    Route::get('/create', [UserController::class, 'create'])->name('user.create');
+    Route::post('/', [UserController::class, 'store'])->name('user.store');
+    Route::get('/{id}', [UserController::class, 'show'])->name('user.show');
+    Route::get('/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+    Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
+    Route::delete('/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+    
 });
 
 Route::group(['prefix' => 'level'], function(){
