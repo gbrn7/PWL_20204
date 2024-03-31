@@ -33,7 +33,6 @@ Jawaban </br>
 ### Praktikum 4 – CRUD(create, read, update, delete) </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/005a0646-6321-4cc7-afcd-b94106ce7884)
 
-
 ### Tugas
 1. Coba tampilkan level_id pada halaman web tersebut dimana field ini merupakan foreign key </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f9b2b8d8-0368-4c2b-ac40-0ba72299c2f3)
