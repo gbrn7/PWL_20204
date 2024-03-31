@@ -21,6 +21,9 @@ yang terjadi view menampilkan pesan 'Data yang anda cari tidak ditemukan' </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5589f0d6-66dd-4a5d-b977-788bfb5581f6) </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bd305655-8a21-4b58-a507-cb1f23e14d8b) </br>
 Yang terjadi data di update sesuai data baru </br>
+- Langkah 24 :  Kemudian jalankan browser untuk menghapus salah satu data user. Amati dan laporkan! </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b9b842e6-2cb2-470b-aff0-5f803776b68b) </br>
+
 
 
 
