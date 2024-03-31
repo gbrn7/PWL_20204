@@ -12,6 +12,12 @@ Semester : 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a05d71ae-5d26-49a2-8fad-850ec8ce35c5) </br>
 
 ### Praktikum 3 – Implementasi jQuery Datatable di AdminLTE </br>
+ - Langkah 16 : Sekarang kalian coba untuk melihat detail data user di browser, dan coba untuk 
+mengetikkan id yang salah contoh http://localhost/PWL_POS/public/user/100 amati 
+apa yang terjadi, dan laporkan!!! </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/52430abc-62b4-4256-8009-a9691ec3eff8) </br>
+yang terjadi view menampilkan pesan 'Data yang anda cari tidak ditemukan'
+
 
 
 
