@@ -43,6 +43,8 @@ Jawaban </br>
    d. @push() untuk menambah konten bagian @stack </br>
    d. @yield() untuk menerapkan konten dinamis </br>
    e. @stack() untuk menandai tempat penambahan konten oleh @push </br>
+4. a. Fungsi variabel $active menu untuk menyinpan menu item apa yang akan aktif</br>
+   b. Tujuannya agar ketika membuka sebuah halaman misal halaman user maka pada sidebar akan aktif menu item user
 
 
 
