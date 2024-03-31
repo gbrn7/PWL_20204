@@ -10,7 +10,8 @@ Semester : 6 (enam)  <br>
 POS PWL, buatlah form untuk tabel m_user dan m_leveL
 Jawaban </br>
 1. form table m_user </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a403ffcf-67e9-4bae-85eb-27649577de99)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5d8c06b0-eada-4d3b-8712-db2f89adb548)
+
 2. form table m_level </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5a114852-1bfa-47fb-9871-3745dca2e613)
 
