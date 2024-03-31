@@ -37,12 +37,12 @@ Yang terjadi data di update sesuai data baru </br>
 Jawaban </br>
 1. frontend template digunakan untuk kerangka yang mempermudah pembuatan tampilan antar muka, sedangkan backend template merupakan kerangka yang memudahkan pembuatan backend
 2. Layouting atau tata letak penting untuk tata letak website
-3. a. $include() untuk mengikutsertakan view lain
-   b. @extend() untuk menambah atau memperluas view
-   c. @section() untuk menambah konten dinamis
-   d. @push() untuk menambah konten bagian @stack
-   d. @yield() untuk menerapkan konten dinamis
-   e. @stack() untuk menandai tempat penambahan konten oleh @push
+3. a. $include() untuk mengikutsertakan view lain </br>
+   b. @extend() untuk menambah atau memperluas view </br>
+   c. @section() untuk menambah konten dinamis </br>
+   d. @push() untuk menambah konten bagian @stack </br>
+   d. @yield() untuk menerapkan konten dinamis </br>
+   e. @stack() untuk menandai tempat penambahan konten oleh @push </br>
 
 
 
