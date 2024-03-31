@@ -32,7 +32,7 @@ Yang terjadi data di update sesuai data baru </br>
 2. Apakah layouting itu penting dalam membangun sebuah website?
 3. Jelaskan fungsi dari komponen laravel blade berikut : @include(), @extend(), 
 @section(), @push(), @yield(), dan @stack()
-4. Apa fungsi dan tujuan dari variable $activeMenu ?
+4. Apa fungsi dan tujuan dari variable $activeMenu ? </br>
 Jawaban
 1. frontend template digunakan untuk kerangka yang mempermudah pembuatan tampilan antar muka, sedangkan backend template merupakan kerangka yang memudahkan pembuatan backend
 
