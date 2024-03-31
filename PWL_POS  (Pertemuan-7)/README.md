@@ -3,51 +3,33 @@ Mata Kuliah : Pemrograman Web Lanjut (PWL) <br>
 Program Studi : D4 – Teknik Informatika / D4 – Sistem Informasi Bisnis <br>
 Semester : 6 (enam)  <br>
 
-## Hasil JOBSHEET 6 Template Form (AdminLTE), Server Validation, Client Validation, CRUD
+## Hasil JOBSHEET 07 PWL – LARAVEL STARTER CODE
 
-### Praktikum 1 – Template Form (AdminLTE)
-- Eksplorasi jenis form pada adminLTE dan coba terapkan yang sesuai untuk studi kasus 
-POS PWL, buatlah form untuk tabel m_user dan m_leveL
-Jawaban </br>
-1. form table m_user </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a403ffcf-67e9-4bae-85eb-27649577de99)
-2. form table m_level </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5a114852-1bfa-47fb-9871-3745dca2e613)
+### Praktikum 1 – Layouting AdminLTE </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bfc901d3-10b7-49d1-ae27-8112f24ecb2e) </br>
 
-### Praktikum 2 – VALIDASI PADA SERVER
-- Tulis perbedaan penggunaan validate dengan validateWithBag!
-    - Validate menyimpan pesan error pada key yang sama dengan nama key inputnya 
-    - ValidateWithBag akan menyimpan pesan error pada sebuah tas atau variabel yang bernama
-- Hasil Praktikum
-  ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3046d55d-a34e-4c68-a3dd-b761886f95a4)
+### Praktikum 2 – Penerapan Layouting </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a05d71ae-5d26-49a2-8fad-850ec8ce35c5) </br>
 
-### Praktikum 3 – FORM REQUEST VALIDATION
--  Terapkan validasi juga pada tabel m_user dan m_level.
-1. m_user </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/425f544d-9706-4f8b-94a4-cb83a35c4434) </br>
-
-1. m_level </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/54d8cd89-87ff-4755-bc9b-95e2f9644cb5)
-
-### Praktikum 4 – CRUD(create, read, update, delete) </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/005a0646-6321-4cc7-afcd-b94106ce7884)
+### Praktikum 3 – Implementasi jQuery Datatable di AdminLTE </br>
+ - Langkah 16 : Sekarang kalian coba untuk melihat detail data user di browser, dan coba untuk 
+mengetikkan id yang salah contoh http://localhost/PWL_POS/public/user/100 amati 
+apa yang terjadi, dan laporkan!!! </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/52430abc-62b4-4256-8009-a9691ec3eff8) </br>
+yang terjadi view menampilkan pesan 'Data yang anda cari tidak ditemukan' </br>
+- Langkah 20: Sekarang kalian coba untuk mengedit data user di browser, amati, pahami, dan laporkan!
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5589f0d6-66dd-4a5d-b977-788bfb5581f6) </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/bd305655-8a21-4b58-a507-cb1f23e14d8b) </br>
+Yang terjadi data di update sesuai data baru </br>
+- Langkah 24 :  Kemudian jalankan browser untuk menghapus salah satu data user. Amati dan laporkan! </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b9b842e6-2cb2-470b-aff0-5f803776b68b) </br>
 
 
-### Tugas
-1. Coba tampilkan level_id pada halaman web tersebut dimana field ini merupakan foreign key </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f9b2b8d8-0368-4c2b-ac40-0ba72299c2f3)
 
-2. Modifikasi dengan tema/ template kesukaan Anda </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/eb70df41-7ec6-47f9-966f-b7d37447dc51) </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/79766e5e-1954-4439-8a29-dfb0ea238ced) </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/29dab3fc-7fb8-4837-bf1b-ea94b224deb5) </br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/49c9486a-851d-4423-9f3a-d2403eac99cb) </br>
 
-4. Apa fungsi $request->validate, $error dan alert yang ada pada halaman CRUD tersebut </br>
-Jawaban </br>
-a. Fungsi $request->validate : untuk memvalidasi data request yang dikirimkan client </br>
-b. Fungsi $error : Menampung pesan error dari validasi data request </br>
-c. Fungsi alert : alert merupakan class dari boostrap untuk melakukan styling sebuah elemen yang digunakan untuk tempat pesan atau feedback tertentu </br>
+
+
+
 
 
 
