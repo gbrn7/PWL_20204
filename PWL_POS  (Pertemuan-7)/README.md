@@ -27,6 +27,15 @@ Yang terjadi data di update sesuai data baru </br>
 ### Praktikum 4 – Implementasi Filtering Datatables: </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1183c729-bb6d-484e-aff3-c5f119160588) </br>
 
+### Pertanyaan </br>
+1. Apa perbedaan frontend template dengan backend template?
+2. Apakah layouting itu penting dalam membangun sebuah website?
+3. Jelaskan fungsi dari komponen laravel blade berikut : @include(), @extend(), 
+@section(), @push(), @yield(), dan @stack()
+4. Apa fungsi dan tujuan dari variable $activeMenu ?
+Jawaban
+1. frontend template digunakan untuk kerangka yang mempermudah pembuatan tampilan antar muka, sedangkan backend template merupakan kerangka yang memudahkan pembuatan backend
+
 
 
 
