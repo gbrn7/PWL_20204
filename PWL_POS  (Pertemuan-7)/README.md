@@ -24,6 +24,10 @@ Yang terjadi data di update sesuai data baru </br>
 - Langkah 24 :  Kemudian jalankan browser untuk menghapus salah satu data user. Amati dan laporkan! </br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b9b842e6-2cb2-470b-aff0-5f803776b68b) </br>
 
+### Praktikum 4 – Implementasi Filtering Datatables: </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1183c729-bb6d-484e-aff3-c5f119160588) </br>
+
+
 
 
 
