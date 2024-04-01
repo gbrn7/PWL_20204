@@ -40,6 +40,7 @@
           <th>Nama Pembeli</th>
           <th>Kode Penjualan</th>
           <th>Tanggal Penjualan</th>
+          <th>Total Penjualan (Rp)</th>
           <th>Aksi</th>
         </tr>
       </thead>
@@ -69,7 +70,7 @@
     orderable: false,
     searchable: false
     },{
-    data: "user.nama", 
+    data: "nama", 
     className: "",
     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
@@ -90,11 +91,17 @@
     searchable: false // searchable: true, jika ingin kolom ini bisa dicari
     },
     {
+  data: "total", 
+    className: "",
+    orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
+    },
+    {
     data: "aksi", 
     className: "",
     orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
     searchable: false // searchable: true, jika ingin kolom ini bisa dicari
-    }
+    },
     ],
     });
 
