@@ -46,6 +46,22 @@ Jawaban </br>
 4. a. Fungsi variabel $active menu untuk menyinpan menu item apa yang akan aktif</br>
    b. Tujuannya agar ketika membuka sebuah halaman misal halaman user maka pada sidebar akan aktif menu item user
 
+### Tugas </br>
+##  1. Halaman Manajemen Level </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/fd0a718f-a080-430a-a58f-82d7f5d756f1) </br>
+##  2. Halaman Manajemen User </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a24fc3ab-6349-4586-9a33-ef8329a073ef) </br>
+##  3. Halaman Manajemen Kategori Barang </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/277b9331-c7f5-417f-ab77-0dc66ac2a8af) </br>
+##  4. Halaman Manajemen Barang </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/6d21740d-260d-44c5-b2bd-544230352ab4) </br>
+##  5. Halaman Manajemen Stok Barang </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5589f5f4-1444-4b7a-89c4-3a133aff3d69) </br>
+##  6. Halaman Manajemen Penjualan </br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/71b48ed7-d05c-4f80-b8f3-b0e8cbb630bc) </br>
+
+
+
 
 
 
