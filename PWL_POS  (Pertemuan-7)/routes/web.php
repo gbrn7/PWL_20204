@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
+use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\POSController;
+use App\Http\Controllers\StokController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -41,22 +44,58 @@ Route::group(['prefix' => 'user'], function(){
 });
 
 Route::group(['prefix' => 'level'], function(){
-    Route::get('/', [LevelController::class, 'index']);
+    Route::get('/', [LevelController::class, 'index'])->name('level.index');
+    Route::post('/list', [LevelController::class, 'list'])->name('level.list');
     Route::get('/create', [LevelController::class, 'create'])->name('level.create');
-});
-
-Route::group(['prefix' => 'user'], function() {
-    Route::get('/create', [UserController::class, 'create'])->name('user.create');
-
+    Route::post('/', [LevelController::class, 'store'])->name('level.store');
+    Route::get('/{id}', [LevelController::class, 'show'])->name('level.show');
+    Route::get('/{id}/edit', [LevelController::class, 'edit'])->name('level.edit');
+    Route::put('/{id}', [LevelController::class, 'update'])->name('level.update');
+    Route::delete('/{id}', [LevelController::class, 'destroy'])->name('level.destroy');
 });
 
 Route::group(['prefix' => 'kategori'], function(){
-    Route::get('/', [KategoriController::class, 'index']);
-    Route::get('/create', [KategoriController::class, 'create']);
-    Route::post('', [KategoriController::class, 'store']);
-    Route::get('/edit/{id}', [KategoriController::class, 'editCategory']);
-    Route::post('/edit/{id}', [KategoriController::class, 'storeCategory']);
-    Route::get('/delete/{id}', [KategoriController::class, 'deleteCategory'])->name('kategori.delete');
+    Route::get('/', [KategoriController::class, 'index'])->name('kategori.index');
+    Route::post('/list', [KategoriController::class, 'list'])->name('kategori.list');
+    Route::get('/create', [KategoriController::class, 'create'])->name('kategori.create');
+    Route::post('/', [KategoriController::class, 'store'])->name('kategori.store');
+    Route::get('/{id}', [KategoriController::class, 'show'])->name('kategori.show');
+    Route::get('/{id}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
+    Route::put('/{id}', [KategoriController::class, 'update'])->name('kategori.update');
+    Route::delete('/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
+});
+
+Route::group(['prefix' => 'barang'], function(){
+    Route::get('/', [BarangController::class, 'index'])->name('barang.index');
+    Route::post('/list', [BarangController::class, 'list'])->name('barang.list');
+    Route::get('/create', [BarangController::class, 'create'])->name('barang.create');
+    Route::post('/', [BarangController::class, 'store'])->name('barang.store');
+    Route::get('/{id}', [BarangController::class, 'show'])->name('barang.show');
+    Route::get('/{id}/edit', [BarangController::class, 'edit'])->name('barang.edit');
+    Route::put('/{id}', [BarangController::class, 'update'])->name('barang.update');
+    Route::delete('/{id}', [BarangController::class, 'destroy'])->name('barang.destroy'); 
+});
+
+Route::group(['prefix' => 'stok'], function(){
+    Route::get('/', [StokController::class, 'index'])->name('stok.index');
+    Route::get('/list', [StokController::class, 'list'])->name('stok.list');
+    Route::get('/create', [StokController::class, 'create'])->name('stok.create');
+    Route::post('/', [StokController::class, 'store'])->name('stok.store');
+    Route::get('/{id}', [StokController::class, 'show'])->name('stok.show');
+    Route::get('/{id}/edit', [StokController::class, 'edit'])->name('stok.edit');
+    Route::put('/{id}', [StokController::class, 'update'])->name('stok.update');
+    Route::delete('/{id}', [StokController::class, 'destroy'])->name('stok.destroy'); 
+});
+
+Route::group(['prefix' => 'penjualan'], function(){
+    Route::get('/', [PenjualanController::class, 'index'])->name('penjualan.index');
+    Route::get('/list', [PenjualanController::class, 'list'])->name('penjualan.list');
+    Route::get('/create', [PenjualanController::class, 'create'])->name('penjualan.create');
+    Route::post('/', [PenjualanController::class, 'store'])->name('penjualan.store');
+    Route::get('/{id}', [PenjualanController::class, 'show'])->name('penjualan.show');
+    Route::get('/{id}/edit', [PenjualanController::class, 'edit'])->name('penjualan.edit');
+    Route::put('/{id}', [PenjualanController::class, 'update'])->name('penjualan.update');
+    Route::delete('/{id}', [PenjualanController::class, 'destroy'])->name('penjualan.destroy'); 
 });
 
 Route::resource('m_user', POSController::class);

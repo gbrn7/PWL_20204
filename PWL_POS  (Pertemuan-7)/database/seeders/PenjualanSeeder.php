@@ -16,7 +16,7 @@ class PenjualanSeeder extends Seeder
         $data = [
             [
                 'user_id' => 1,
-                'pembeli' => 'Admin',
+                'pembeli' => 'Fahmi',
                 'penjualan_kode' => 'AAA',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -24,7 +24,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'pembeli' => 'Admin',
+                'pembeli' => 'Fahmi',
                 'penjualan_kode' => 'AAB',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -32,7 +32,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'pembeli' => 'Admin',
+                'pembeli' => 'Fahmi',
                 'penjualan_kode' => 'AAC',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -40,7 +40,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'pembeli' => 'Admin',
+                'pembeli' => 'Fahmi',
                 'penjualan_kode' => 'AAD',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -48,7 +48,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 1,
-                'pembeli' => 'Admin',
+                'pembeli' => 'Fahmi',
                 'penjualan_kode' => 'AAD',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -56,7 +56,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'pembeli' => 'Manager',
+                'pembeli' => 'Fajar',
                 'penjualan_kode' => 'AAE',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -64,7 +64,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'pembeli' => 'Manager',
+                'pembeli' => 'Fajar',
                 'penjualan_kode' => 'AAF',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -72,7 +72,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 2,
-                'pembeli' => 'Manager',
+                'pembeli' => 'Fajar',
                 'penjualan_kode' => 'AAG',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -80,7 +80,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 3,
-                'pembeli' => 'Staff',
+                'pembeli' => 'Vira',
                 'penjualan_kode' => 'AAH',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
@@ -88,7 +88,7 @@ class PenjualanSeeder extends Seeder
             ],
             [
                 'user_id' => 3,
-                'pembeli' => 'Staff',
+                'pembeli' => 'Vira',
                 'penjualan_kode' => 'AAI',
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),

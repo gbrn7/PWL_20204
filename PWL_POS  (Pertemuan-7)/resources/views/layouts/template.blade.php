@@ -14,6 +14,10 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="{{asset('adminLte/plugins/fontawesome-free/css/all.min.css')}}">
 
+  <!-- Select2 -->
+  <link rel="stylesheet" href="{{asset('adminLte/plugins/select2/css/select2.min.css')}}">
+  <link rel="stylesheet" href="{{asset('adminLte/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
   {{-- DataTables --}}
   <link rel="stylesheet" href="{{asset('adminLte/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
   <link rel="stylesheet" href="{{asset('adminLte/plugins/datatables-responsive/css/responsive.bootstrap4.css')}}">
@@ -81,6 +85,8 @@
   <script src="{{asset('adminLte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
   <!-- AdminLTE App -->
   <script src="{{asset('adminLte/dist/js/adminlte.min.js')}}"></script>
+  <!-- Select2 -->
+  <script src="{{asset('adminLte/plugins/select2/js/select2.full.min.js')}}"></script>
   <!-- AdminLTE for demo purposes -->
   <script src="{{asset('adminLte/dist/js/demo.js')}}"></script>
   <script>

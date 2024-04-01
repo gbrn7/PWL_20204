@@ -11,8 +11,9 @@
       <h3 class="card-title">Edit Kategori</h3>
     </div>
 
-    <form action="/kategori/edit/{{$category->kategori_id}}" method="post">
+    <form action="{{ url('/kategori/'.$kategori->kategori_id) }}" method="post">
       @csrf
+      @method('PUT')
       <div class="card-body">
         {{-- Error Alert --}}
         @if ($errors->any())
@@ -26,12 +27,12 @@
         @endif
         <div class="form-group">
           <label for="kodeKategori">Kode Kategori</label>
-          <input type="text" name="kategori_kode" value="{{$category->kategori_kode}}" id="kodeKategori"
+          <input type="text" name="kategori_kode" value="{{$kategori->kategori_kode}}" id="kodeKategori"
             placeholder="Untuk makanan, contoh: MKN" class="form-control">
         </div>
         <div class="form-group">
           <label for="kodeKategori">Nama Kategori</label>
-          <input type="text" name="kategori_nama" id="namaKategori" value="{{$category->kategori_nama}}"
+          <input type="text" name="kategori_nama" id="namaKategori" value="{{$kategori->kategori_nama}}"
             placeholder="Nama" class="form-control">
         </div>
 
