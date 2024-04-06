@@ -65,6 +65,14 @@
           <p>Transaksi Penjualan</p>
         </a>
       </li>
+
+      {{-- <li class="nav-item mt-2">
+        <a href="{{route('signIn.logout')}}" class="nav-link">
+
+          <i class="fas fa-sign-out-alt nav-icon"></i>
+          <p>Logout</p>
+        </a>
+      </li> --}}
     </ul>
   </nav>
 </div>
