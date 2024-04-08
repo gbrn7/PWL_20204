@@ -210,13 +210,17 @@ class PenjualanController extends Controller
         }
 
         try {
-            PenjualanDetailModel::where('penjualan_id',$id)->first()->delete();
+            $penjualanDetail = PenjualanDetailModel::where('penjualan_id',$id)->get();
+
+            foreach ($penjualanDetail as $key => $item) {
+                $item->delete();
+            }
 
             PenjualanModel::destroy($id);
 
             return redirect('/penjualan')->with('success', 'Data penjualan berhasil dihapus');
         } catch (\Throwable $th) {
-            dd($th);
+            // dd($th);
             return redirect('/penjualan')->with('error', 'Data penjualan gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }

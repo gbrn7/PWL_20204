@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Halo, apakabar!!!</h3>
+        <h3 class="card-title">Home</h3>
         <div class="card-tools"></div>
     </div>
     <div class="card-body">
@@ -14,30 +14,20 @@
         @if (session('error'))
         <div class="alert alert-danger">{{session('error')}}</div>
         @endif
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">Filter :</label>
-                    <div class="col-3">
-                        <select name="level_id" required id="level_id" class="form-control">
-                            <option value="">- Semua -</option>
-                            @foreach ($level as $item)
-                            <option value="{{$item->level_id}}">{{$item->level_nama}}</option>
-                            @endforeach
-                        </select>
-                        <small class="form-text text-muted">Level Pengguna</small>
-                    </div>
-                </div>
-            </div>
+        <div class="btn-wrapper d-flex justify-content-end mb-3">
+            <a href="{{route('member.export.pdf')}}" class="btn btn-danger mr-2">Export PDF <i
+                    class="ml-1 far fa-file-pdf"></i></a>
+            <a href="{{route('member.export.excel')}}" class="btn btn-success">Export Excel <i
+                    class="ml-1 far fa-file-excel"></i></a>
         </div>
         <table class="table table-bordered table-striped table-hover table-sm" id="table_user">
             <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>No</th>
                     <th>Username</th>
                     <th>Nama</th>
-                    <th>Level
-                        Pengguna</th>
+                    <th>Level</th>
+                    <th>Status Validasi</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -54,13 +44,14 @@
     var dataUser = $('#table_user').DataTable({
     serverSide: true, // serverSide: true, jika ingin menggunakan server side processing
     ajax: {
-    "url": "{{ url('user/list') }}",
+    "url": "{{ url('member/list') }}",
     "dataType": "json",
     "type": "POST",
     "data": function(d) {
       d.level_id = $('#level_id').val();
-    }
     },
+    },
+
     columns: [
     {
     data: "DT_RowIndex", // nomor urut dari laravel datatable addIndexColumn()
@@ -79,6 +70,11 @@
     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
     },{
     data: "level.level_nama", 
+    className: "",
+    orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
+    },{
+        data: "status", 
     className: "",
     orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
     searchable: false // searchable: true, jika ingin kolom ini bisa dicari

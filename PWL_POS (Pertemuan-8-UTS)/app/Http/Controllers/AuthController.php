@@ -35,7 +35,7 @@ class AuthController extends Controller
         }
  
         return back()->withErrors([
-            'email' => 'Email anda tidak terdaftar',
+            'authentication' => 'Your Email/Password invalid',
         ])->onlyInput('email');
     }
 

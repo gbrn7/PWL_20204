@@ -38,7 +38,13 @@ Route::get('/template', function () {
 });
 
 Route::middleware(['auth', ])->group(function () {
+
     Route::get('/', [WelcomeController::class, 'index'])->name('home.index');
+    Route::group(['prefix' => 'member'], function(){
+        Route::post('/list', [WelcomeController::class, 'list'])->name('member.list');
+        Route::get('/export-pdf', [WelcomeController::class, 'exportPdf'])->name('member.export.pdf');
+        Route::get('/export-excel', [WelcomeController::class, 'exportExcel'])->name('member.export.excel');
+    });
     
     Route::group(['prefix' => 'user'], function(){
         Route::get('/', [UserController::class, 'index'])->name('user.index');
@@ -49,7 +55,6 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
         Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
         Route::delete('/{id}', [UserController::class, 'destroy'])->name('user.destroy');
-        
     });
     
     Route::group(['prefix' => 'level'], function(){
