@@ -15,24 +15,32 @@
         <div class="alert alert-danger">{{session('error')}}</div>
         @endif
         @if (auth()->user()->level->level_nama != 'Member')
-        <div class="btn-wrapper d-flex justify-content-end mb-3">
-            <a href="{{route('member.export.pdf')}}" class="btn btn-danger mr-2">Export PDF <i
-                    class="ml-1 far fa-file-pdf"></i></a>
-            <a href="{{route('member.export.excel')}}" class="btn btn-success">Export Excel <i
-                    class="ml-1 far fa-file-excel"></i></a>
+        <div class="chart-wrapper container-fluid">
+            {!! $chart->container() !!}
         </div>
-        <table class="table table-bordered table-striped table-hover table-sm" id="table_user">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Username</th>
-                    <th>Nama</th>
-                    <th>Level</th>
-                    <th>Status Validasi</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-        </table>
+        <div class="table-wrapper container-fluid">
+            <div class="title">
+                <strong>List Member</strong>
+            </div>
+            <div class="btn-wrapper d-flex justify-content-end mb-3">
+                <a href="{{route('member.export.pdf')}}" class="btn btn-danger mr-2">Export PDF <i
+                        class="ml-1 far fa-file-pdf"></i></a>
+                <a href="{{route('member.export.excel')}}" class="btn btn-success">Export Excel <i
+                        class="ml-1 far fa-file-excel"></i></a>
+            </div>
+            <table class="table table-bordered table-striped table-hover table-sm" id="table_user">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Username</th>
+                        <th>Nama</th>
+                        <th>Level</th>
+                        <th>Status Validasi</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         @else
         <table class="table table-bordered table-striped table-hover table-sm">
             <tr>
@@ -69,6 +77,8 @@
 @push('css')
 @endpush
 @push('js')
+<script src="{{ $chart->cdn() }}"></script>
+{{ $chart->script() }}
 <script>
     $(document).ready(function() {
     var dataUser = $('#table_user').DataTable({

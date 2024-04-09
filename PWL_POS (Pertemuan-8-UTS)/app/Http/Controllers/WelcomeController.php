@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\MemberRegisterChart;
 use App\Exports\MembersExport;
 use App\Models\userModel;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -12,7 +13,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class WelcomeController extends Controller
 {
-    public function index()
+    public function index(MemberRegisterChart $chart)
     {
         $breadcrumb = (object) [
             'title' => 'Selamat Datang',
@@ -22,7 +23,11 @@ class WelcomeController extends Controller
         $activeMenu = 'dashboard';
 
         // return view('welcome', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu]);
-        return view('home.index', compact('breadcrumb', 'activeMenu'));
+        return view('home.index', [
+            'breadcrumb' => $breadcrumb,
+            'activeMenu' => $activeMenu,
+            'chart' => $chart->build()
+        ]);
     }
 
     public function list(Request $request)
@@ -44,7 +49,7 @@ class WelcomeController extends Controller
         . csrf_field() . method_field('DELETE') . 
         '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Hapus</button></form>'; 
+        ini?\');">Delete</button></form>'; 
         return $btn;
         })
         ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html

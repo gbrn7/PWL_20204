@@ -61,7 +61,7 @@ class LevelController extends Controller
         . csrf_field() . method_field('DELETE') . 
         '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Hapus</button></form>'; 
+        ini?\');">Delete</button></form>'; 
         return $btn;
         })
         ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
