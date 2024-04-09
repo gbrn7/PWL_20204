@@ -36,7 +36,7 @@ class AuthController extends Controller
  
         return back()->withErrors([
             'authentication' => 'Your Email/Password invalid',
-        ])->onlyInput('email');
+        ])->onlyInput('username');
     }
 
     public function logout(Request $request): RedirectResponse

@@ -6,6 +6,7 @@ use App\Models\LevelModel;
 use App\Models\userModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class UserController extends Controller
@@ -169,14 +170,19 @@ class UserController extends Controller
 
     public function destroy(string $id)
     {
-        $check = UserModel::find($id);
+        $member = UserModel::find($id);
 
-        if(!$check){
+        if(!$member){
             return redirect('/user')->with('error', 'Data user tidak ditemukan');
         }
 
         try {
-            UserModel::destroy($id);
+
+            if(!empty( $member->profile_img)){        
+                Storage::delete('public/profile/'.$member->profile_img);
+            }
+
+            $member->delete();
 
             return redirect('/user')->with('success', 'Data user berhasil dihapus');
         } catch (\Throwable $th) {

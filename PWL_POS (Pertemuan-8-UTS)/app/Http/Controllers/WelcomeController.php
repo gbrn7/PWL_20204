@@ -6,6 +6,7 @@ use App\Exports\MembersExport;
 use App\Models\userModel;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -35,11 +36,11 @@ class WelcomeController extends Controller
 
         return DataTables::of($users)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
         ->addColumn('aksi', function ($user) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/user/' . $user->user_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/user/' . $user->user_id . '/edit').'" 
+        $btn = '<a href="'.url('/member/' . $user->user_id).'" class="btn btn-info btn-sm">Detail</a> ';
+        $btn .= '<a href="'.url('/member/updateValidation/' . $user->user_id ).'" 
         class="btn btn-warning btn-sm">'.($user->status == 0 ? 'Validate' : 'Unvalidate' ).'</a> ';
         $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/user/'.$user->user_id).'">'
+        url('/member/'.$user->user_id).'">'
         . csrf_field() . method_field('DELETE') . 
         '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
@@ -71,6 +72,61 @@ class WelcomeController extends Controller
     public function exportExcel()
     {
         return Excel::download(new MembersExport, 'Data_Member_PWL_POS.xlsx');
+    }
+
+    public function show(string $id)
+    {
+        $member = userModel::with('level')->find($id);
+
+        $breadcrumb = (object) [
+            'title' => 'Detail User',
+            'list' => ['Home', 'Member', 'Detail']
+        ];
+
+        $page = (object) [
+            'title' => 'Detail user'
+        ];
+
+        $activeMenu = 'dashboard';
+
+        return view('home.member', [
+            'breadcrumb' => $breadcrumb, 
+            'page' => $page,
+            'member' => $member,
+            'activeMenu' => $activeMenu
+        ]);
+    }
+
+    public function updateValidation($id)
+    {
+        $user = userModel::find($id);
+
+        $user->update([
+            'status' => !(bool) $user->status
+        ]);
+
+        return redirect('/')->with('success', 'Status validasi member berhasil diubah');
+    }
+
+    public function destroy(string $id)
+    {
+        $member = UserModel::find($id);
+
+        if(!$member){
+            return redirect('/user')->with('error', 'Data member tidak ditemukan');
+        }
+
+        try {
+            if(!empty( $member->profile_img)){        
+                Storage::delete('public/profile/'.$member->profile_img);
+            }
+
+            $member->delete();
+
+            return redirect('/')->with('success', 'Data member berhasil dihapus');
+        } catch (\Throwable $th) {
+            return redirect('/')->with('/error', 'Data member gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
+        }
     }
 
 }

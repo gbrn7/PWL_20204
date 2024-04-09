@@ -20,6 +20,7 @@
           <p>Dashboard</p>
         </a>
       </li>
+      @if (auth()->user()->level->level_nama != 'Member')
       <li class="nav-header">Data Pengguna</li>
       <li class="nav-item">
         <a href="{{ url('/level') }}" class="nav-link {{ ($activeMenu == 'level')? 
@@ -65,6 +66,7 @@
           <p>Transaksi Penjualan</p>
         </a>
       </li>
+      @endif
 
       <li class="nav-item mt-2">
         <a href="{{route('signIn.logout')}}" class="nav-link">

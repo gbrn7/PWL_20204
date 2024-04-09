@@ -14,6 +14,7 @@
         @if (session('error'))
         <div class="alert alert-danger">{{session('error')}}</div>
         @endif
+        @if (auth()->user()->level->level_nama != 'Member')
         <div class="btn-wrapper d-flex justify-content-end mb-3">
             <a href="{{route('member.export.pdf')}}" class="btn btn-danger mr-2">Export PDF <i
                     class="ml-1 far fa-file-pdf"></i></a>
@@ -32,6 +33,35 @@
                 </tr>
             </thead>
         </table>
+        @else
+        <table class="table table-bordered table-striped table-hover table-sm">
+            <tr>
+                <th>ID</th>
+                <td>{{ auth()->user()->user_id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ auth()->user()->username }}</td>
+            </tr>
+            <tr>
+                <th>Nama</th>
+                <td>{{ auth()->user()->nama }}</td>
+            </tr>
+            <tr>
+                <th>Level</th>
+                <td>{{ auth()->user()->level->level_nama }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ auth()->user()->status == 1 ? 'Validate' : 'Unvalidate' }}</td>
+            </tr>
+            <tr>
+                <th>Foto Profil</th>
+                <td><img src="{{asset('storage/profile/'.auth()->user()->profile_img)}}" class=" "></td>
+            </tr>
+
+        </table>
+        @endif
     </div>
 </div>
 

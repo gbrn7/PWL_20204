@@ -40,10 +40,14 @@ Route::get('/template', function () {
 Route::middleware(['auth', ])->group(function () {
 
     Route::get('/', [WelcomeController::class, 'index'])->name('home.index');
+
     Route::group(['prefix' => 'member'], function(){
         Route::post('/list', [WelcomeController::class, 'list'])->name('member.list');
         Route::get('/export-pdf', [WelcomeController::class, 'exportPdf'])->name('member.export.pdf');
         Route::get('/export-excel', [WelcomeController::class, 'exportExcel'])->name('member.export.excel');
+        Route::get('/updateValidation/{id}', [WelcomeController::class, 'updateValidation'])->name('member.updateValidation');
+        Route::get('/{id}', [WelcomeController::class, 'show'])->name('member.show');
+        Route::delete('/{id}', [WelcomeController::class, 'destroy'])->name('member.destroy');
     });
     
     Route::group(['prefix' => 'user'], function(){
