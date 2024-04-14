@@ -53,7 +53,6 @@ class AuthController extends Controller
     public function signUp()
     {
         return view('auth.signUp');
-
     }
 
     public function storeMember(Request $request): RedirectResponse //: RedirectResponse is return type
