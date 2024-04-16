@@ -88,7 +88,7 @@ class UserController extends Controller
 
         userModel::create([
             'username' => $request->username,
-            'name' => $request->name,
+            'nama' => $request->nama,
             'password' => bcrypt($request->password),
             'level_id' => $request->level_id,
         ]);

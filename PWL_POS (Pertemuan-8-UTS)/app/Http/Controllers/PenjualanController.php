@@ -39,22 +39,33 @@ class PenjualanController extends Controller
     public function list(Request $request)
     {
         // $transactions = PenjualanModel::with('user');
-
-        $transactions = (object) DB::table('t_penjualan as p')
-                ->join('t_penjualan_detail as pd', 'p.penjualan_id','=', 'pd.penjualan_id')
-                ->join('m_user as u', 'p.user_id','=', 'u.user_id')
-                ->selectRaw('p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, p.penjualan_tanggal, sum(pd.harga * pd.jumlah) as total')
-                ->groupBy('u.nama')
-                ->groupBy('p.pembeli')
-                ->groupBy('p.penjualan_id')
-                ->groupBy('p.penjualan_kode')
-                ->groupBy('p.penjualan_tanggal')
-                ->get();
-
         // dd($trans);
 
         if($request->user_id){
-            $transactions->where('user_id', $request->user_id);
+            // $transactions->where('user_id', $request->user_id);
+
+            $transactions = (object) DB::table('t_penjualan as p')
+            ->join('t_penjualan_detail as pd', 'p.penjualan_id','=', 'pd.penjualan_id')
+            ->join('m_user as u', 'p.user_id','=', 'u.user_id')
+            ->selectRaw('p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, p.penjualan_tanggal, sum(pd.harga * pd.jumlah) as total')
+            ->where('p.user_id', $request->user_id)
+            ->groupBy('u.nama')
+            ->groupBy('p.pembeli')
+            ->groupBy('p.penjualan_id')
+            ->groupBy('p.penjualan_kode')
+            ->groupBy('p.penjualan_tanggal')
+            ->get();
+        }else{
+            $transactions = (object) DB::table('t_penjualan as p')
+            ->join('t_penjualan_detail as pd', 'p.penjualan_id','=', 'pd.penjualan_id')
+            ->join('m_user as u', 'p.user_id','=', 'u.user_id')
+            ->selectRaw('p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, p.penjualan_tanggal, sum(pd.harga * pd.jumlah) as total')
+            ->groupBy('u.nama')
+            ->groupBy('p.pembeli')
+            ->groupBy('p.penjualan_id')
+            ->groupBy('p.penjualan_kode')
+            ->groupBy('p.penjualan_tanggal')
+            ->get();
         }
 
         return DataTables::of($transactions)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
@@ -178,8 +189,7 @@ class PenjualanController extends Controller
 
         $barangLaku = $request->only('barang_id');
 
-
-        foreach ($barangLaku as $key => $item) {
+        foreach ($barangLaku['barang_id'] as $key => $item) {
 
             PenjualanDetailModel::create([
                 'penjualan_id' => $penjualan->penjualan_id,

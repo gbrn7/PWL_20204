@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LevelModel;
 use App\Models\userModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -23,12 +24,15 @@ class AuthController extends Controller
             'username' => ['required'],
             'password' => ['required'],
         ]);
+
+        $user = userModel::where('username', $credentials['username'])->first();
+
+        if(isset($user)){            
+            if($user->status == 0)  return back()->withErrors(['status' => 'Your account has not been validated']);
+        }  
+            
  
         if (Auth::attempt($credentials)) {
-            $user = userModel::where('username', $credentials['username'])->first();
-            
-            if($user->status == 0)  return back()->withErrors(['status' => 'Your account has not been validated']);
-
             $request->session()->regenerate();
  
             return redirect()->route('home.index');
@@ -65,7 +69,7 @@ class AuthController extends Controller
             'profile_img' => ['required', 'mimes:png,jpg,jpeg', 'max:1024'],
         ]);
 
-        $newUser['level_id'] = 4;
+        $newUser['level_id'] = LevelModel::where('level_nama', 'Member')->first()->level_id;
         $newUser['status'] = 0;
 
         try {

@@ -37,7 +37,7 @@ class StokController extends Controller
 
     public function list(Request $request)
     {
-        $stoks = StokModel::with('barang')->with('user');
+        $stoks = StokModel::with('barang.kategori')->with('user'); //multi level
 
         if($request->barang_id){
             $stoks->where('barang_id', $request->barang_id);
