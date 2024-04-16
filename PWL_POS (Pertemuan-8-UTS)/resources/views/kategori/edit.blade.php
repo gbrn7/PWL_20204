@@ -1,16 +1,18 @@
-@extends('layout.app')
-
-@section('subtitle', 'Kategori')
-@section('content_header_title', 'Home')
-@section('content_header_subtitle', 'Create')
-
+@extends('layouts.template')
 @section('content')
-<div class="container-fluid">
-  <div class="card card-primary">
-    <div class="card-header">
-      <h3 class="card-title">Edit Kategori</h3>
+<div class="card card-outline card-primary">
+  <div class="card-header">
+    <h3 class="card-title">{{ $page->title }}</h3>
+    <div class="card-tools"></div>
+  </div>
+  <div class="card-body">
+    @empty($kategori)
+    <div class="alert alert-danger alert-dismissible">
+      <h5><i class="icon fas fa-ban"></i> Kesalahan!</h5>
+      Data yang Anda cari tidak ditemukan.
     </div>
-
+    <a href="{{ url('level') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
+    @else
     <form action="{{ url('/kategori/'.$kategori->kategori_id) }}" method="post">
       @csrf
       @method('PUT')
@@ -41,6 +43,11 @@
         </div>
       </div>
     </form>
+    @endempty
   </div>
 </div>
 @endsection
+@push('css')
+@endpush
+@push('js')
+@endpush
