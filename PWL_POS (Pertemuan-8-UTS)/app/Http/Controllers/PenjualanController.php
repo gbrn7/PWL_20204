@@ -259,7 +259,7 @@ class PenjualanController extends Controller
         if(count($barangLaku) > 0){
             PenjualanDetailModel::where('penjualan_id', $id)->delete();
 
-            foreach ($barangLaku as $key => $item) {
+            foreach ($barangLaku['barang_id'] as $key => $item) {
 
                 PenjualanDetailModel::create([
                     'penjualan_id' => $penjualan->penjualan_id,

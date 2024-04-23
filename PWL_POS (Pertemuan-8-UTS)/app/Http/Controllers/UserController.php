@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -79,19 +80,24 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $newUser = $request->validate([
             'username' => 'required|string|min:3|unique:m_user,username',
             'nama' => 'required|string|max:100',
             'password' => 'required|min:5',
             'level_id' => 'required|integer',
+            'profile_img' => 'nullable|mimes:jpg,png,jpeg',
         ]);
 
-        userModel::create([
-            'username' => $request->username,
-            'nama' => $request->nama,
-            'password' => bcrypt($request->password),
-            'level_id' => $request->level_id,
-        ]);
+        if($request->only('profile_img')){
+            // Store profile image
+            $profileImg = $newUser['profile_img'];
+            $profileName = Str::random(10).$newUser['profile_img']->getClientOriginalName();
+            $profileImg->storeAs('public/profile', $profileName);
+            // Overide profile_img name
+            $newUser['profile_img'] = $profileName;
+        }
+
+        userModel::create($newUser);
 
         return redirect('/user')->with('success', 'Data user berhasil disimpan');
     }
@@ -151,18 +157,35 @@ class UserController extends Controller
     {
 
         // dd($request->all(), $id);
-        $request->validate([
+        $newUser = $request->validate([
             'username' => 'required|string|unique:m_user,username,'.$id.',user_id',
             'nama' => 'required|string|max:100',
             'password' => 'nullable|min:5',
             'level_id' => 'required|integer',
+            'profile_img' => 'nullable|mimes:jpg,png,jpeg',
+
         ]);
 
-        UserModel::find($id)->update([
+        $oldData = UserModel::find($id);
+
+        if($request->only('profile_img')){
+            // Store profile image
+            $profileImg = $newUser['profile_img'];
+            $profileName = Str::random(10).$newUser['profile_img']->getClientOriginalName();
+            $profileImg->storeAs('public/profile', $profileName);
+            // Overide profile_img name
+            $newUser['profile_img'] = $profileName;
+
+            Storage::delete('public/profile/'.$oldData->profile_img);
+        }
+
+
+        $oldData->update([
             'username' => $request->username,
             'nama' => $request->nama,
-            'password' => $request->password ? bcrypt($request->password) : userModel::find($id)->password,
-            'level_id' => $request->level_id
+            'password' => $request->password ? bcrypt($request->password) : $oldData->password,
+            'level_id' => $request->level_id,
+            'profile_img' => $newUser['profile_img']
         ]);
 
         return redirect('/user')->with('success', 'Data user berhasil diubah');

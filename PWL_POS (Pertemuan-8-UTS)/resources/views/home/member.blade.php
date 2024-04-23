@@ -33,7 +33,7 @@
       </tr>
       <tr>
         <th>Status</th>
-        <td>{{ auth()->user()->status == 1 ? 'Validate' : 'Unvalidate' }}</td>
+        <td>{{ $member->status == 1 ? 'Validate' : 'Unvalidate' }}</td>
       </tr>
       <tr>
       <tr>
