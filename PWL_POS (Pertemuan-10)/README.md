@@ -65,11 +65,11 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server mengembalikan semua data level</p>
 
 #### Hasil-2 (Create user)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c18d6dd2-67dc-4015-b7ad-6c4c0b120d8a)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3421b54b-798d-443d-b5f4-05f447f49aa9)
 <p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
 
 #### Hasil-3 (Show user)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b6296d3c-2e1c-4014-b997-ac7d6a2068a8)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/008bcdae-b008-4a81-9690-5e397ab328f0)
 <p>Hasilnya server dan mengembalikan detail data</p>
 
 #### Hasil-4 (Update user)
