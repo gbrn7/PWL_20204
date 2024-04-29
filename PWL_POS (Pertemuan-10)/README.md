@@ -54,10 +54,73 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
 
 #### Hasil-5 (Delete level)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3cfc3de5-5079-4720-9048-d77e70fcbe02)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/0f880e1e-a604-4688-a51b-4d3b1af57d25)
 <p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
+## Tugas
 
+### CRUD m_user
+#### Hasil-1 (Get user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b4be9c9b-fb2a-47b5-a560-66293e9817dc)
+<p>Hasilnya server mengembalikan semua data user</p>
+
+#### Hasil-2 (Create user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3421b54b-798d-443d-b5f4-05f447f49aa9)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+#### Hasil-3 (Show user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/008bcdae-b008-4a81-9690-5e397ab328f0)
+<p>Hasilnya server dan mengembalikan detail data</p>
+
+#### Hasil-4 (Update user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c86f4e89-48f9-4970-a4b6-24ebfe5ee933)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
+#### Hasil-5 (Delete user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/9f5c6a4a-4bf8-4ca3-a33f-453fffd6f99c)
+<p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
+
+### CRUD m_kategori
+#### Hasil-1 (Get category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4e6b0f00-dec6-4b17-8a5e-cdc9fac1355e)
+<p>Hasilnya server mengembalikan semua data kategori</p>
+
+#### Hasil-2 (Create category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/791ed208-5f38-4be5-b38b-dbc375c4a11a)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+#### Hasil-3 (Show category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a106e694-f461-4036-a2c9-3fecf4914e3d)
+<p>Hasilnya server dan mengembalikan detail data</p>
+
+#### Hasil-4 (Update category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/996feb88-5ca4-4bf8-8945-f0de5b1a5222)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
+#### Hasil-5 (Delete category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e0970e4b-155b-4a1f-921b-7c94f2bebbfc)
+<p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
+
+### CRUD m_barang
+#### Hasil-1 (Get barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/73379b09-e981-47bb-8bf7-2dfd01d8cb7e)
+<p>Hasilnya server mengembalikan semua data barang</p>
+
+#### Hasil-2 (Create barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/56e0446a-cb4d-4ddd-a42e-8504e5149300)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+#### Hasil-3 (Show barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/92f19ce7-bd21-45ff-b533-a7a4a1c407d1)
+<p>Hasilnya server dan mengembalikan detail data</p>
+
+#### Hasil-4 (Update barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f2a276d9-9e2a-465f-98c8-7739a9a0fd9f)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
+#### Hasil-5 (Delete barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5d0fa349-5e2b-4c17-a631-f583ef08e2a2)
+<p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
 
 
