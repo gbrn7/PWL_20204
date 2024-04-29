@@ -28,6 +28,11 @@ Semester : 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/ce956432-1035-4626-8cfd-181b072be222)
 <p>Hasil server mengembalikan pesan error mengirim data yang salah</p>
 
+#### Hasil-4 Menampilkan data user yang sedang login<br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/de744d85-02be-4149-b92e-d7c11b1cc822)
+<p>Hasil server mengembalikan data user yang sedang login</p>
+
+
 
 
 
