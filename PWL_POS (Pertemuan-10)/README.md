@@ -54,9 +54,31 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
 
 #### Hasil-5 (Delete level)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3cfc3de5-5079-4720-9048-d77e70fcbe02)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/0f880e1e-a604-4688-a51b-4d3b1af57d25)
 <p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
+## Tugas
+
+### CRUD m_user
+#### Hasil-1 (Get user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c584de13-0bd1-4a23-aec1-0ab130a623e5)
+<p>Hasilnya server mengembalikan semua data level</p>
+
+#### Hasil-2 (Create user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c18d6dd2-67dc-4015-b7ad-6c4c0b120d8a)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+#### Hasil-3 (Show user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b6296d3c-2e1c-4014-b997-ac7d6a2068a8)
+<p>Hasilnya server dan mengembalikan detail data</p>
+
+#### Hasil-4 (Update user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/6a690c63-4e3c-402b-aaae-ab54f8330499)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
+#### Hasil-5 (Delete user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/2bd35525-5f06-4dab-8aee-d3db66f7ed98)
+<p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
 
 
