@@ -23,7 +23,7 @@ class RegisterController extends Controller
         $user = userModel::create([
             'username' => $request->username,
             'nama' => $request->nama,
-            'password' => bcrypt($request->nama),
+            'password' => bcrypt($request->password),
             'level_id' => $request->level_id
         ]);
 
