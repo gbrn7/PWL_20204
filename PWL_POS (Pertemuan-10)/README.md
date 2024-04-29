@@ -115,11 +115,11 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server dan mengembalikan detail data</p>
 
 #### Hasil-4 (Update barang)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/996feb88-5ca4-4bf8-8945-f0de5b1a5222)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/f2a276d9-9e2a-465f-98c8-7739a9a0fd9f)
 <p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
 
 #### Hasil-5 (Delete barang)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e0970e4b-155b-4a1f-921b-7c94f2bebbfc)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/5d0fa349-5e2b-4c17-a631-f583ef08e2a2)
 <p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
 
