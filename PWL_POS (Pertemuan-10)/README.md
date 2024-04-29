@@ -11,7 +11,7 @@ Semester : 6 (enam)  <br>
 <p>Hasil server mengembalikan pesan error karena belum di kirim data apapun</p>
 
 #### Hasil-2 <br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c3fe8dee-0bf0-4b4c-a79d-3c84651c8f8f) <br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/07705f25-116b-4831-9593-02d594fba069) <br>
 <p>Hasil server pesan success data data pengguna yang register</p>
 
 
@@ -20,6 +20,9 @@ Semester : 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/fb2e4cdd-59db-42d6-b161-91b80a9786e2)  <br>
 <p>Hasil server mengembalikan pesan error karena belum di kirim data apapun</p>
 
+#### Hasil-2 <br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c943000e-837a-49c8-9fd7-9179cb58dd92)
+<p>Hasil server pesan success data data pengguna yang login</p>
 
 
 
