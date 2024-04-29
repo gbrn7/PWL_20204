@@ -61,7 +61,7 @@ Semester : 6 (enam)  <br>
 
 ### CRUD m_user
 #### Hasil-1 (Get user)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c584de13-0bd1-4a23-aec1-0ab130a623e5)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b4be9c9b-fb2a-47b5-a560-66293e9817dc)
 <p>Hasilnya server mengembalikan semua data level</p>
 
 #### Hasil-2 (Create user)
