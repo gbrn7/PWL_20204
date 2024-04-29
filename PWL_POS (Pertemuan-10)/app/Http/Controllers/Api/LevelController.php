@@ -27,12 +27,13 @@ class LevelController extends Controller
     public function update(Request $request, LevelModel $level)
     {
         $level->update($request->all());
+
         return LevelModel::find($level);
     }
 
-    public function destroy(LevelModel $user)
+    public function destroy(LevelModel $level)
     {
-        $user->delete();
+        $level->delete();
 
         return response()->json([
             'success' => true,
