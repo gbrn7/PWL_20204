@@ -90,7 +90,7 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
 
 #### Hasil-3 (Show category)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/008bcdae-b008-4a81-9690-5e397ab328f0)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a106e694-f461-4036-a2c9-3fecf4914e3d)
 <p>Hasilnya server dan mengembalikan detail data</p>
 
 #### Hasil-4 (Update user)
