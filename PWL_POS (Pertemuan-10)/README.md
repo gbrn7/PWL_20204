@@ -36,6 +36,16 @@ Semester : 6 (enam)  <br>
 #### Hasil-1 Logout<br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/61b96ed9-a89f-4ba5-a576-145a75694bbd)
 
+### Praktikum 4 Implementasi CRUD dalam RESTful API
+#### Hasil-1 (Get level)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c584de13-0bd1-4a23-aec1-0ab130a623e5)
+<p>Hasilnya server mengembalikan semua data level</p>
+
+#### Hasil-2 (Create level)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c18d6dd2-67dc-4015-b7ad-6c4c0b120d8a)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+
 
 
 
