@@ -97,7 +97,7 @@ Semester : 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/996feb88-5ca4-4bf8-8945-f0de5b1a5222)
 <p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
 
-#### Hasil-5 (Delete user)
+#### Hasil-5 (Delete category)
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e0970e4b-155b-4a1f-921b-7c94f2bebbfc)
 <p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
