@@ -62,13 +62,34 @@ Semester : 6 (enam)  <br>
 ### CRUD m_user
 #### Hasil-1 (Get user)
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b4be9c9b-fb2a-47b5-a560-66293e9817dc)
-<p>Hasilnya server mengembalikan semua data level</p>
+<p>Hasilnya server mengembalikan semua data user</p>
 
 #### Hasil-2 (Create user)
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/3421b54b-798d-443d-b5f4-05f447f49aa9)
 <p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
 
 #### Hasil-3 (Show user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/008bcdae-b008-4a81-9690-5e397ab328f0)
+<p>Hasilnya server dan mengembalikan detail data</p>
+
+#### Hasil-4 (Update user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c86f4e89-48f9-4970-a4b6-24ebfe5ee933)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
+#### Hasil-5 (Delete user)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/9f5c6a4a-4bf8-4ca3-a33f-453fffd6f99c)
+<p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
+
+### CRUD m_kategori
+#### Hasil-1 (Get category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4e6b0f00-dec6-4b17-8a5e-cdc9fac1355e)
+<p>Hasilnya server mengembalikan semua data kategori</p>
+
+#### Hasil-2 (Create category)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/791ed208-5f38-4be5-b38b-dbc375c4a11a)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+#### Hasil-3 (Show category)
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/008bcdae-b008-4a81-9690-5e397ab328f0)
 <p>Hasilnya server dan mengembalikan detail data</p>
 
