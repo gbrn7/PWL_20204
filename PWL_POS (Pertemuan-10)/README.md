@@ -73,7 +73,7 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server dan mengembalikan detail data</p>
 
 #### Hasil-4 (Update user)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/6a690c63-4e3c-402b-aaae-ab54f8330499)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c86f4e89-48f9-4970-a4b6-24ebfe5ee933)
 <p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
 
 #### Hasil-5 (Delete user)
