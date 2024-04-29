@@ -98,7 +98,7 @@ Semester : 6 (enam)  <br>
 <p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
 
 #### Hasil-5 (Delete user)
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/9f5c6a4a-4bf8-4ca3-a33f-453fffd6f99c)
+![Uploading image.png…]()
 <p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
 
