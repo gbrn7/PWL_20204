@@ -7,12 +7,12 @@ Semester : 6 (enam)  <br>
 
 ### Praktikum 1 Membuat RESTful API Register
 #### Hasil-1 <br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c0a95247-057b-429b-bb1a-6d3e889be814)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c0a95247-057b-429b-bb1a-6d3e889be814) <br>
 <p>Hasil server mengembalikan pesan error karena belum di kirim data apapun</p>
 
 #### Hasil-2 <br>
-![image](https://github.com/gbrn7/PWL_2024/assets/127575934/6f2fbd1e-53f8-4ad0-bacf-9d95621073b9)
-<p>Hasil server mengembalikan pesan error karena belum di kirim data apapun</p>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/c3fe8dee-0bf0-4b4c-a79d-3c84651c8f8f) <br>
+<p>Hasil server pesan success data data pengguna yang register</p>
 
 
 
