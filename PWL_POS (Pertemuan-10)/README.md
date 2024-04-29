@@ -33,6 +33,8 @@ Semester : 6 (enam)  <br>
 <p>Hasilya server mengembalikan data user yang sedang login</p>
 
 ### Praktikum 3 Membuat RESTful API Logout
+#### Hasil-1 Logout<br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/61b96ed9-a89f-4ba5-a576-145a75694bbd)
 
 
 
