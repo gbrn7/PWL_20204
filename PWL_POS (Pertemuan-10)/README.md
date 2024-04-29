@@ -15,6 +15,11 @@ Semester : 6 (enam)  <br>
 <p>Hasil server pesan success data data pengguna yang register</p>
 
 
+### Praktikum 2 Membuat RESTful API Login
+#### Hasil-1 <br>
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/fb2e4cdd-59db-42d6-b161-91b80a9786e2)  <br>
+<p>Hasil server mengembalikan pesan error karena belum di kirim data apapun</p>
+
 
 
 
