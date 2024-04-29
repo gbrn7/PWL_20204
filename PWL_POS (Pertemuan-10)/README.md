@@ -49,6 +49,10 @@ Semester : 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/b6296d3c-2e1c-4014-b997-ac7d6a2068a8)
 <p>Hasilnya server dan mengembalikan detail data</p>
 
+#### Hasil-4 (Update level)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/6a690c63-4e3c-402b-aaae-ab54f8330499)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
 
 
 
