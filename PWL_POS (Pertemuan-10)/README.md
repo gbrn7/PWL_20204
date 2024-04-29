@@ -101,6 +101,26 @@ Semester : 6 (enam)  <br>
 ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e0970e4b-155b-4a1f-921b-7c94f2bebbfc)
 <p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
+### CRUD m_barang
+#### Hasil-1 (Get barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/73379b09-e981-47bb-8bf7-2dfd01d8cb7e)
+<p>Hasilnya server mengembalikan semua data barang</p>
+
+#### Hasil-2 (Create barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/56e0446a-cb4d-4ddd-a42e-8504e5149300)
+<p>Hasilnya server menyimpan data baru dan mengembalikan data baru</p>
+
+#### Hasil-3 (Show barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/92f19ce7-bd21-45ff-b533-a7a4a1c407d1)
+<p>Hasilnya server dan mengembalikan detail data</p>
+
+#### Hasil-4 (Update barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/996feb88-5ca4-4bf8-8945-f0de5b1a5222)
+<p>Hasilnya server mengupdate data dan mengembalikan data yang diupdate</p>
+
+#### Hasil-5 (Delete barang)
+![image](https://github.com/gbrn7/PWL_2024/assets/127575934/e0970e4b-155b-4a1f-921b-7c94f2bebbfc)
+<p>Hasilnya server menghapus data dan mengembalikan pesan sukses</p>
 
 
 
