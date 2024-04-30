@@ -30,7 +30,6 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/signUp', [AuthController::class, 'signUp'])->name('signUp.index');
 // Route::post('/signUp', [AuthController::class, 'authenticate'])->name('signUp.authenticate');
-Route::get('/', [WelcomeController::class, 'index'])->name('home.index');
 
 Route::get('/adminlte', function () {
     return view('welcome_admin_lte');
@@ -48,6 +47,8 @@ Route::post('proses_register', [AuthController::class, 'proses_register'])->name
 
 
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/', [WelcomeController::class, 'index'])->name('home.index');
+
     Route::group(['middleware' => ['cek_login:1']], function () {
         Route::resource('admin', AdminController::class);
     });
