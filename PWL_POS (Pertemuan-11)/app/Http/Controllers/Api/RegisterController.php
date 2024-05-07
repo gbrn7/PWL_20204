@@ -20,15 +20,18 @@ class RegisterController extends Controller
         ]);
 
         if($validator->fails()) return response()->json($validator->errors(), 422);
-
-        $image = $request->image;
+        
+        // Store image
+        $image = $request->file('image');
+        $imageName = $image->hashName();
+        $image->storeAs('public/posts', $imageName);
 
         $user = userModel::create([
             'username' => $request->username,
             'nama' => $request->nama,
             'password' => bcrypt($request->password),
             'level_id' => $request->level_id,
-            'image' => $image->hashName()
+            'image' => $imageName,
         ]);
 
         if($user) return response()->json([
