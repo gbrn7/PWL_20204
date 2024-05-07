@@ -20,8 +20,14 @@ inputkan.
 
 Jawaban
 1. a. m_barang
-   ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/2d896259-913d-4b8e-84ff-0e9ee7038e0d)
-   ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/dfaad3f7-0850-4510-baa9-e7f23b37c214)
+   - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/469ce33a-3830-4fcf-981d-e155784064db)
+   -![image](https://github.com/gbrn7/PWL_2024/assets/127575934/59c25a9c-b95d-4875-a3d9-196301addcc3)
+
+   b. transaksi
+   - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/7faf4385-8628-4d71-ba2f-22b421116771)
+   - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/1fb33a22-65ef-4518-bf0e-d8a452008e03)
+
+
 
 
 
