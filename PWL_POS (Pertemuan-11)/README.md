@@ -19,6 +19,10 @@ gunakan pada transaksi. Uji coba dengan method GET untuk memanggil data yang sud
 inputkan.
 
 Jawaban
+1. a. m_barang
+   ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/2d896259-913d-4b8e-84ff-0e9ee7038e0d)
+   ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/dfaad3f7-0850-4510-baa9-e7f23b37c214)
+
 
 
 
