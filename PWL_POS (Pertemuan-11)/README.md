@@ -11,6 +11,14 @@ Semester : 6 (enam)  <br>
 - Hasil data gambar setelah dihash
  ![Screenshot 2024-05-07 073036](https://github.com/gbrn7/PWL_2024/assets/127575934/188eb420-8b0c-414b-856f-188a8b1ea48c)
 
+ ### TUGAS
+1. Implementasikan API untuk upload file/gambar pada tabel lainnya yaitu tabel m_barang dan 
+gunakan pada transaksi. Uji coba dengan method GET untuk memanggil data yang sudah di 
+inputkan.
+
+Jawaban
+
+
 
 
 
