@@ -8,7 +8,7 @@ Semester : 6 (enam)  <br>
  ### TUGAS
 1. Buat form file upload dimana kita bisa menentukan sendiri nama file akhir. Nama file ini 
 diambil dari inputan text box yang juga ada di dalam form tersebut. Setelah di submit, 
-langsung tampilkan file tersebut di web browser menggunakan tag <img>.
+langsung tampilkan file tersebut di web browser menggunakan tag. <br>
 2.Tambahkan proses upload image dan application pada starter code
 
 Jawaban <br>
