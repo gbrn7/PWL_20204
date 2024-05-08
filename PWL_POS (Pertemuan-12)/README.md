@@ -18,6 +18,13 @@ Jawaban <br>
    - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/a6022e7a-cee9-4440-a983-b81c7813a671)
 
 
+2.
+   - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4c582c15-7d43-4785-8121-2d5e426c9fb4)
+   - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/8df53743-9771-449e-b9eb-b4e74bedcc6f)
+
+
+
+
 
 
 
