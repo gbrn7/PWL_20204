@@ -19,6 +19,7 @@ Jawaban <br>
 
 
 2. <br>
+
    - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/4c582c15-7d43-4785-8121-2d5e426c9fb4)
    - ![image](https://github.com/gbrn7/PWL_2024/assets/127575934/8df53743-9771-449e-b9eb-b4e74bedcc6f)
 
