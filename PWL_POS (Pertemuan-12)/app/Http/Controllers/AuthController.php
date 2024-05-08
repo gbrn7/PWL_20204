@@ -16,14 +16,16 @@ class AuthController extends Controller
         $user = Auth::user();
 
         if($user){
-            if($user->level_id =='1')
-            {
-                return redirect()->intended('admin');
-            }elseif($user->level == '2')
-            {
-                return redirect()->intended('manager');
-            }
-        }
+                return redirect()->intended('user');
+        //     if($user->level_id =='1')
+        //     {
+        //         return redirect()->intended('admin');
+        //     }elseif($user->level == '2')
+        //     {
+        //         return redirect()->intended('manager');
+        //     }
+        // 
+    }
         
         return view('login');
     }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Yajra\DataTables\Facades\DataTables;
 
 class BarangController extends Controller
@@ -98,9 +99,25 @@ class BarangController extends Controller
             'barang_nama' => 'required|string|max:100',
             'harga_beli' => 'required|numeric',
             'harga_jual' => 'required|numeric',
+            'image' => 'required|file|mimes:png,jpg,jpeg|max:2000',
         ]);
 
-        BarangModel::create($request->all());
+        if($request->hasFile('image'))
+        {
+            // Store image
+            $image = $request->file('image');
+            $imageName = Str::random(10).'.'.$image->extension();
+            $image->storeAs('public/posts', $imageName);
+        }
+
+        BarangModel::create([
+            'kategori_id' => $request->kategori_id,
+            'barang_kode' => $request->barang_kode,
+            'barang_nama' => $request->barang_nama,
+            'harga_beli' => $request->harga_beli,
+            'harga_jual' => $request->harga_jual,
+            'image' => $imageName,
+        ]);
 
         return redirect('/barang')->with('success', 'Data barang berhasil disimpan');
     }
