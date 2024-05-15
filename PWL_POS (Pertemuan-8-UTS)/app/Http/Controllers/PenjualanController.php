@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\ForecastingChart;
+use App\Charts\TransactionsChart;
 use App\Models\BarangModel;
 use App\Models\PenjualanDetailModel;
 use App\Models\PenjualanModel;
 use App\Models\StokModel;
 use App\Models\userModel;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class PenjualanController extends Controller
 {
-    public function index()
+    public function index(TransactionsChart $chart, ForecastingChart $forecastingChart)
     {
         $breadcrumb = (object) [
             'title' => 'Manajemen Penjualan',
@@ -32,7 +35,9 @@ class PenjualanController extends Controller
         'breadcrumb' => $breadcrumb, 
         'page' => $page, 
         'user' => $user, 
-        'activeMenu' => $activeMenu
+        'activeMenu' => $activeMenu,
+        'chart' => $chart->build(),
+        'forecastingChart' => $forecastingChart->build()
         ]);
     }
 
@@ -71,6 +76,7 @@ class PenjualanController extends Controller
         return DataTables::of($transactions)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
         ->addColumn('aksi', function ($penjualan) { // menambahkan kolom aksi
         $btn = '<a href="'.url('/penjualan/' . $penjualan->penjualan_id).'" class="btn btn-info btn-sm">Detail</a> ';
+        $btn .= '<a href="'.url('/penjualan/' . $penjualan->penjualan_id.'/printStruk').'" class="btn btn-secondary btn-sm">Print Struk</a> ';
         $btn .= '<a href="'.url('/penjualan/' . $penjualan->penjualan_id . '/edit').'" 
         class="btn btn-warning btn-sm">Edit</a> ';
         $btn .= '<form class="d-inline-block" method="POST" action="'. 
@@ -280,5 +286,18 @@ class PenjualanController extends Controller
         DB::commit();
 
         return redirect('/penjualan')->with('success', 'Data penjualan berhasil diubah');
+    }
+
+    public function printStruk(string $id)
+    {
+        $transaction = PenjualanModel::with('penjualanDetail')->find($id);
+
+        $pdf = Pdf::loadView('export_table.transaksiStruk', [
+            'transaction' => $transaction,
+        ]);
+
+        return response()->streamDownload(function() use($pdf){
+            echo $pdf->stream();
+        }, 'struk_Transaksi_#'.$transaction->penjualan_kode.'.pdf');
     }
 }

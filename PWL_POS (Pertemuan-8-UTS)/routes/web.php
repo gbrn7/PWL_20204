@@ -114,6 +114,7 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/{id}/edit', [PenjualanController::class, 'edit'])->name('penjualan.edit');
         Route::put('/{id}', [PenjualanController::class, 'update'])->name('penjualan.update');
         Route::delete('/{id}', [PenjualanController::class, 'destroy'])->name('penjualan.destroy'); 
+        Route::get('/{id}/printStruk', [PenjualanController::class, 'printStruk'])->name('penjualan.printStruk');
     });
     
     // Route::resource('m_user', POSController::class);

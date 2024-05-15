@@ -15,6 +15,12 @@
     @if (session('error'))
     <div class="alert alert-danger">{{session('error')}}</div>
     @endif
+    <div class="chart-wrapper container-fluid">
+      {!! $chart->container() !!}
+    </div>
+    <div class="chart-wrapper container-fluid mt-3">
+      {!! $forecastingChart->container() !!}
+    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="form-group row">
@@ -51,6 +57,10 @@
 @push('css')
 @endpush
 @push('js')
+<script src="{{ $chart->cdn() }}"></script>
+{{ $chart->script() }}
+<script src="{{ $forecastingChart->cdn() }}"></script>
+{{ $forecastingChart->script() }}
 <script>
   $(document).ready(function() {
     var dataPenjualan = $('#table_penjualan').DataTable({

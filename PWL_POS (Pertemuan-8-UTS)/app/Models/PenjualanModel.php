@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class PenjualanModel extends Model
 {
@@ -26,7 +27,10 @@ class PenjualanModel extends Model
         return $this->belongsTo(userModel::class, 'user_id', 'user_id');
     }
 
-
+    public function penjualanDetail(): HasMany
+    {
+        return $this->HasMany(PenjualanDetailModel::class, 'penjualan_id', 'penjualan_id');
+    }
 
     protected $casts = [
         'penjualan_tanggal'  => 'date:d-m-Y',
