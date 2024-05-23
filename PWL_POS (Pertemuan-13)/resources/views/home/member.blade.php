@@ -22,6 +22,18 @@
         <td>{{ $member->nama }}</td>
       </tr>
       <tr>
+        <th>Alamat</th>
+        <td>{{ $member->alamat }}</td>
+      </tr>
+      <tr>
+        <th>No KTP</th>
+        <td>{{ $member->no_ktp }}</td>
+      </tr>
+      <tr>
+        <th>No Telp</th>
+        <td>{{ $member->no_telp }}</td>
+      </tr>
+      <tr>
       <tr>
         <th>Username</th>
         <td>{{ $member->username }}</td>

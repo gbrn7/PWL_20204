@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -17,7 +18,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 1,
                 'pembeli' => 'Fahmi',
-                'penjualan_kode' => 'AAA',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -25,7 +26,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 1,
                 'pembeli' => 'Fahmi',
-                'penjualan_kode' => 'AAB',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -33,7 +34,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 1,
                 'pembeli' => 'Fahmi',
-                'penjualan_kode' => 'AAC',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -41,7 +42,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 1,
                 'pembeli' => 'Fahmi',
-                'penjualan_kode' => 'AAD',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -49,7 +50,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 1,
                 'pembeli' => 'Fahmi',
-                'penjualan_kode' => 'AAD',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -57,7 +58,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 2,
                 'pembeli' => 'Fajar',
-                'penjualan_kode' => 'AAE',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -65,7 +66,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 2,
                 'pembeli' => 'Fajar',
-                'penjualan_kode' => 'AAF',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -73,7 +74,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 2,
                 'pembeli' => 'Fajar',
-                'penjualan_kode' => 'AAG',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -81,7 +82,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 3,
                 'pembeli' => 'Vira',
-                'penjualan_kode' => 'AAH',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -89,7 +90,7 @@ class PenjualanSeeder extends Seeder
             [
                 'user_id' => 3,
                 'pembeli' => 'Vira',
-                'penjualan_kode' => 'AAI',
+                'penjualan_kode' => 'jual' . Carbon::now()->format('dmY'),
                 'penjualan_tanggal' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),

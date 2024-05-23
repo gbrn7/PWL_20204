@@ -37,6 +37,9 @@
           <th>ID</th>
           <th>Username</th>
           <th>Nama</th>
+          <th>Alamat</th>
+          <th>No KTP</th>
+          <th>No Telp</th>
           <th>Level
             Pengguna</th>
           <th>Aksi</th>
@@ -74,6 +77,21 @@
     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
     },{
     data: "nama", 
+    className: "",
+    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+    },{
+    data: "alamat", 
+    className: "",
+    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+    },{
+    data: "no_ktp", 
+    className: "",
+    orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
+    searchable: true // searchable: true, jika ingin kolom ini bisa dicari
+    },{
+    data: "no_telp", 
     className: "",
     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
     searchable: true // searchable: true, jika ingin kolom ini bisa dicari

@@ -24,15 +24,6 @@
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-1 control-label col-form-label">Username</label>
-        <div class="col-11">
-          <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" required>
-          @error('username')
-          <small class="form-text text-danger">{{ $message }}</small>
-          @enderror
-        </div>
-      </div>
-      <div class="form-group row">
         <label class="col-1 control-label col-form-label">Nama</label>
         <div class="col-11">
           <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama') }}" required>
@@ -42,10 +33,37 @@
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-1 control-label col-form-label">Gambar Profile</label>
+        <label class="col-1 control-label col-form-label">Alamat</label>
         <div class="col-11">
-          <input type="file" class="form-control" id="nama" name="profile_img" value="{{ old('profile_img') }}">
-          @error('profile_img')
+          <input type="text" class="form-control" id="alamat" name="alamat" value="{{ old('alamat') }}" required>
+          @error('alamat')
+          <small class="form-text text-danger">{{ $message }}</small>
+          @enderror
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-1 control-label col-form-label">No KTP</label>
+        <div class="col-11">
+          <input type="text" class="form-control" id="no_ktp" name="no_ktp" value="{{ old('no_ktp') }}" required>
+          @error('no_ktp')
+          <small class="form-text text-danger">{{ $message }}</small>
+          @enderror
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-1 control-label col-form-label">No Telepon</label>
+        <div class="col-11">
+          <input type="text" class="form-control" id="no_telp" name="no_telp" value="{{ old('no_telp') }}" required>
+          @error('no_telp')
+          <small class="form-text text-danger">{{ $message }}</small>
+          @enderror
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-1 control-label col-form-label">Username</label>
+        <div class="col-11">
+          <input type="text" class="form-control" id="username" name="username" value="{{ old('username') }}" required>
+          @error('username')
           <small class="form-text text-danger">{{ $message }}</small>
           @enderror
         </div>
@@ -55,6 +73,15 @@
         <div class="col-11">
           <input type="password" class="form-control" id="password" name="password" required>
           @error('password')
+          <small class="form-text text-danger">{{ $message }}</small>
+          @enderror
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-1 control-label col-form-label">Gambar Profile</label>
+        <div class="col-11">
+          <input type="file" class="form-control" id="nama" name="profile_img" value="{{ old('profile_img') }}">
+          @error('profile_img')
           <small class="form-text text-danger">{{ $message }}</small>
           @enderror
         </div>

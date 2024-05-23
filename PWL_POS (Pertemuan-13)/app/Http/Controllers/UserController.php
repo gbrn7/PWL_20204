@@ -27,38 +27,41 @@ class UserController extends Controller
 
         $level = LevelModel::all();
 
-        return view('user.index', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'level' => $level, 
-        'activeMenu' => $activeMenu
-        ]);
+        $user = userModel::all();
 
+        return view('user.index', [
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'level' => $level,
+            'activeMenu' => $activeMenu,
+            'user' => userModel::all()
+
+        ]);
     }
 
     public function list(Request $request)
     {
-        $users = userModel::select('user_id', 'username', 'nama', 'level_id')->with('level');
+        $users = userModel::with('level');
 
-        if($request->level_id){
+        if ($request->level_id) {
             $users->where('level_id', $request->level_id);
         }
 
         return DataTables::of($users)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($user) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/user/' . $user->user_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/user/' . $user->user_id . '/edit').'" 
+            ->addColumn('aksi', function ($user) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/user/' . $user->user_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/user/' . $user->user_id . '/edit') . '" 
         class="btn btn-warning btn-sm">Edit</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/user/'.$user->user_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/user/' . $user->user_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
 
     public function create()
@@ -75,7 +78,7 @@ class UserController extends Controller
         $level = LevelModel::all();
         $activeMenu = 'user';
 
-        return view('user.create',['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu]);
+        return view('user.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'level' => $level, 'activeMenu' => $activeMenu, 'user' => UserModel::all()]);
     }
 
     public function store(Request $request)
@@ -83,15 +86,18 @@ class UserController extends Controller
         $newUser = $request->validate([
             'username' => 'required|string|min:3|unique:m_user,username',
             'nama' => 'required|string|max:100',
+            'alamat' => 'required|string|max:100',
+            'no_ktp' => 'required|string|max:100',
+            'no_telp' => 'required|string|max:100',
             'password' => 'required|min:5',
             'level_id' => 'required|integer',
             'profile_img' => 'nullable|mimes:jpg,png,jpeg',
         ]);
 
-        if($request->only('profile_img')){
+        if ($request->only('profile_img')) {
             // Store profile image
             $profileImg = $newUser['profile_img'];
-            $profileName = Str::random(10).$newUser['profile_img']->getClientOriginalName();
+            $profileName = Str::random(10) . $newUser['profile_img']->getClientOriginalName();
             $profileImg->storeAs('public/profile', $profileName);
             // Overide profile_img name
             $newUser['profile_img'] = $profileName;
@@ -118,7 +124,7 @@ class UserController extends Controller
         $activeMenu = 'user';
 
         return view('user.show', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'user' => $user,
             'activeMenu' => $activeMenu
@@ -145,11 +151,12 @@ class UserController extends Controller
         $activeMenu = 'user';
 
         return view('user.edit', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'user' => $user,
+            'userEdit' => $user,
             'level' => $level,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => userModel::all()
         ]);
     }
 
@@ -158,8 +165,11 @@ class UserController extends Controller
 
         // dd($request->all(), $id);
         $newUser = $request->validate([
-            'username' => 'required|string|unique:m_user,username,'.$id.',user_id',
+            'username' => 'required|string|unique:m_user,username,' . $id . ',user_id',
             'nama' => 'required|string|max:100',
+            'alamat' => 'required|string|max:100',
+            'no_ktp' => 'required|string|max:100',
+            'no_telp' => 'required|string|max:100',
             'password' => 'nullable|min:5',
             'level_id' => 'required|integer',
             'profile_img' => 'nullable|mimes:jpg,png,jpeg',
@@ -168,24 +178,27 @@ class UserController extends Controller
 
         $oldData = UserModel::find($id);
 
-        if($request->only('profile_img')){
+        if ($request->profile_img) {
             // Store profile image
             $profileImg = $newUser['profile_img'];
-            $profileName = Str::random(10).$newUser['profile_img']->getClientOriginalName();
+            $profileName = Str::random(10) . $newUser['profile_img']->getClientOriginalName();
             $profileImg->storeAs('public/profile', $profileName);
             // Overide profile_img name
             $newUser['profile_img'] = $profileName;
 
-            Storage::delete('public/profile/'.$oldData->profile_img);
+            Storage::delete('public/profile/' . $oldData->profile_img);
         }
 
 
         $oldData->update([
             'username' => $request->username,
             'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'no_ktp' => $request->no_ktp,
+            'no_telp' => $request->no_telp,
             'password' => $request->password ? bcrypt($request->password) : $oldData->password,
             'level_id' => $request->level_id,
-            'profile_img' => $newUser['profile_img']
+            'profile_img' => isset($newUser['profile_img']) ? $newUser['profile_img'] : $oldData->profile_img
         ]);
 
         return redirect('/user')->with('success', 'Data user berhasil diubah');
@@ -195,14 +208,14 @@ class UserController extends Controller
     {
         $member = UserModel::find($id);
 
-        if(!$member){
+        if (!$member) {
             return redirect('/user')->with('error', 'Data user tidak ditemukan');
         }
 
         try {
 
-            if(!empty( $member->profile_img)){        
-                Storage::delete('public/profile/'.$member->profile_img);
+            if (!empty($member->profile_img)) {
+                Storage::delete('public/profile/' . $member->profile_img);
             }
 
             $member->delete();
@@ -212,6 +225,4 @@ class UserController extends Controller
             return redirect('/user')->with('/error', 'Data user gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
-    
-
 }

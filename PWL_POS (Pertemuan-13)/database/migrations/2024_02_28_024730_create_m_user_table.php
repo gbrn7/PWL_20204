@@ -16,6 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('level_id')->index();
             $table->string('username', 20)->unique();
             $table->string('nama', 100);
+            $table->string('alamat', 100);
+            $table->string('no_ktp', 100);
+            $table->string('no_telp', 100);
             $table->string('password');
             $table->string('profile_img')->nullable();
             $table->boolean('status')->default(0);

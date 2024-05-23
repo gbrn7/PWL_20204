@@ -35,6 +35,7 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Kode Barang</th>
           <th>Kategori Barang</th>
           <th>Nama Barang</th>
           <th>Harga Beli</th>
@@ -64,6 +65,11 @@
     columns: [
     {
     data: "barang_id", // nomor urut dari laravel datatable addIndexColumn()
+    className: "text-center",
+    orderable: false,
+    searchable: false
+    },{
+    data: "barang_kode", // nomor urut dari laravel datatable addIndexColumn()
     className: "text-center",
     orderable: false,
     searchable: false

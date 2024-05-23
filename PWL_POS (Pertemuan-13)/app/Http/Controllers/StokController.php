@@ -26,12 +26,13 @@ class StokController extends Controller
         $barang = BarangModel::all();
         $user = userModel::all();
 
+
         return view('stok.index', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'barang' => $barang, 
-        'user' => $user, 
-        'activeMenu' => $activeMenu
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'barang' => $barang,
+            'user' => $user,
+            'activeMenu' => $activeMenu,
         ]);
     }
 
@@ -39,29 +40,29 @@ class StokController extends Controller
     {
         $stoks = StokModel::with('barang.kategori')->with('user'); //multi level
 
-        if($request->barang_id){
+        if ($request->barang_id) {
             $stoks->where('barang_id', $request->barang_id);
         }
 
-        if($request->user_id){
+        if ($request->user_id) {
             $stoks->where('user_id', $request->user_id);
         }
 
         return DataTables::of($stoks)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($stok) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/stok/' . $stok->stok_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/stok/' . $stok->stok_id . '/edit').'" 
+            ->addColumn('aksi', function ($stok) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/stok/' . $stok->stok_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/stok/' . $stok->stok_id . '/edit') . '" 
         class="btn btn-warning btn-sm">Edit</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/stok/'.$stok->stok_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/stok/' . $stok->stok_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
 
     public function show(string $id)
@@ -80,8 +81,9 @@ class StokController extends Controller
         $activeMenu = 'stok';
 
         return view('stok.show', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
+            'user' => userModel::all(),
             'stok' => $stok,
             'activeMenu' => $activeMenu
         ]);
@@ -102,11 +104,12 @@ class StokController extends Controller
         $user = UserModel::all();
         $activeMenu = 'stok';
 
-        return view('stok.create',[
-            'breadcrumb' => $breadcrumb, 
-            'page' => $page, 
-            'barang' => $barang, 
-            'user' => $user, 
+        return view('stok.create', [
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'barang' => $barang,
+            'user' => userModel::all(),
+            'user' => $user,
             'activeMenu' => $activeMenu
         ]);
     }
@@ -148,8 +151,9 @@ class StokController extends Controller
         $activeMenu = 'stok';
 
         return view('stok.edit', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
+            'user' => userModel::all(),
             'stok' => $stok,
             'barang' => $barang,
             'user' => $user,
@@ -177,7 +181,7 @@ class StokController extends Controller
     {
         $check = StokModel::find($id);
 
-        if(!$check){
+        if (!$check) {
             return redirect('/stok')->with('error', 'Data stok tidak ditemukan');
         }
 

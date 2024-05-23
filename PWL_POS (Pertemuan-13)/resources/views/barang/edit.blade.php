@@ -23,7 +23,8 @@
     </div>
     <a href="{{ url('barang') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
     @else
-    <form method="POST" action="{{ url('/barang/'.$barang->barang_id) }}" class="form-horizontal">
+    <form method="POST" action="{{ url('/barang/'.$barang->barang_id) }}" class="form-horizontal"
+      enctype="multipart/form-data">
       @csrf
       {!! method_field('PUT') !!}
       <!-- tambahkan baris ini untuk proses edit 
@@ -39,16 +40,6 @@ yang butuh method PUT -->
             @endforeach
           </select>
           @error('kategori_id')
-          <small class="form-text text-danger">{{ $message }}</small>
-          @enderror
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-1 control-label col-form-label">Kode Barang</label>
-        <div class="col-11">
-          <input type="text" class="form-control" id="barang_kode" name="barang_kode"
-            value="{{ old('barang_kode', $barang->barang_kode) }}" required>
-          @error('barang_kode')
           <small class="form-text text-danger">{{ $message }}</small>
           @enderror
         </div>
@@ -83,7 +74,15 @@ yang butuh method PUT -->
           @enderror
         </div>
       </div>
-
+      <div class="form-group row">
+        <label class="col-1 control-label col-form-label">Gambar Barang</label>
+        <div class="col-11">
+          <input type="file" class="form-control" name="image">
+          @error('image')
+          <small class="form-text text-danger">{{ $message }}</small>
+          @enderror
+        </div>
+      </div>
       <div class="form-group row">
         <label class="col-1 control-label col-form-label"></label>
         <div class="col-11">

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
+use App\Models\userModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -28,10 +30,11 @@ class BarangController extends Controller
         $kategori = KategoriModel::all();
 
         return view('barang.index', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'kategori' => $kategori, 
-        'activeMenu' => $activeMenu
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'user' => userModel::all(),
+            'kategori' => $kategori,
+            'activeMenu' => $activeMenu
         ]);
     }
 
@@ -39,26 +42,26 @@ class BarangController extends Controller
     {
         $goods = BarangModel::with('kategori');
 
-        if($request->kategori_id){
+        if ($request->kategori_id) {
             $goods->where('kategori_id', $request->kategori_id);
         }
 
 
         return DataTables::of($goods)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($barang) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/barang/' . $barang->barang_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/barang/' . $barang->barang_id . '/edit').'" 
+            ->addColumn('aksi', function ($barang) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/barang/' . $barang->barang_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/barang/' . $barang->barang_id . '/edit') . '" 
         class="btn btn-warning btn-sm">Edit</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/barang/'.$barang->barang_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/barang/' . $barang->barang_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
 
     /**
@@ -80,10 +83,11 @@ class BarangController extends Controller
         $activeMenu = 'barang';
 
         return view('barang.create', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'kategori' => $kategori, 
-        'activeMenu' => $activeMenu
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'kategori' => $kategori,
+            'user' => userModel::all(),
+            'activeMenu' => $activeMenu
         ]);
     }
 
@@ -93,14 +97,32 @@ class BarangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'image' => 'required|image|mimes:png,jpg',
             'kategori_id' => 'required|integer',
-            'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode',
             'barang_nama' => 'required|string|max:100',
             'harga_beli' => 'required|numeric',
-            'harga_jual' => 'required|numeric',
+            'harga_jual' => 'required|numeric|gt:harga_beli',
         ]);
 
-        BarangModel::create($request->all());
+        $barangName = $request->image->hashName();
+        $imgFile = $request->image;
+
+        $kategori = KategoriModel::find($request->kategori_id);
+        $dateNow = Carbon::now()->format('dmY');
+        $barangKategori = (BarangModel::where('kategori_id', $request->kategori_id)->count()) + 1;
+
+        $barangKode = $kategori->kategori_kode . ($barangKategori < 10 ? ('0' . $barangKategori) : $barangKategori) . '/' . $dateNow;
+
+        $imgFile->storeAs('/public/barangImg/', $barangName);
+
+        BarangModel::create([
+            'barang_kode' => $barangKode,
+            'barang_nama' => $request->barang_nama,
+            'kategori_id' => $request->kategori_id,
+            'image' => $barangName,
+            'harga_beli' => $request->harga_beli,
+            'harga_jual' => $request->harga_jual,
+        ]);
 
         return redirect('/barang')->with('success', 'Data barang berhasil disimpan');
     }
@@ -124,8 +146,9 @@ class BarangController extends Controller
         $activeMenu = 'barang';
 
         return view('barang.show', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
+            'user' => userModel::all(),
             'barang' => $barang,
             'activeMenu' => $activeMenu
         ]);
@@ -152,9 +175,10 @@ class BarangController extends Controller
         $activeMenu = 'barang';
 
         return view('barang.edit', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'barang' => $barang,
+            'user' => userModel::all(),
             'kategori' => $kategori,
             'activeMenu' => $activeMenu
         ]);
@@ -167,13 +191,49 @@ class BarangController extends Controller
     {
         $request->validate([
             'kategori_id' => 'required|integer',
-            'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode,'.$id.',barang_id',
             'barang_nama' => 'required|string|max:100',
             'harga_beli' => 'required|numeric',
-            'harga_jual' => 'required|numeric',
+            'harga_jual' => 'required|numeric|gt:harga_beli',
+            'image' => 'nullable|image|mimes:png,jpg',
         ]);
 
-        BarangModel::find($id)->update($request->all());
+        $oldBarang = BarangModel::find($id);
+
+        if ($oldBarang->kategori_id != $request->kategori_id) {
+            $kategori = KategoriModel::find($request->kategori_id);
+            $dateNow = Carbon::now()->format('dmY');
+            $barangKategori = (BarangModel::where('kategori_id', $request->kategori_id)->where('barang_id', '<>', $request->id)->count()) + 1;
+
+            $barangKode = $kategori->kategori_kode . ($barangKategori < 10 ? ('0' . $barangKategori) : $barangKategori) . '/' . $dateNow;
+        } else {
+            $barangKode = $oldBarang->barang_kode;
+        }
+
+        if ($request->image) {
+            $barangName = $request->image->hashName();
+            $imgFile = $request->image;
+
+
+            $imgFile->storeAs('/public/barangImg/', $barangName);
+
+            $oldBarang->update([
+                'barang_kode' => $barangKode,
+                'barang_nama' => $request->barang_nama,
+                'kategori_id' => $request->kategori_id,
+                'image' => $barangName,
+                'harga_beli' => $request->harga_beli,
+                'harga_jual' => $request->harga_jual,
+            ]);
+        } else {
+            $oldBarang->update([
+                'barang_kode' => $barangKode,
+                'barang_nama' => $request->barang_nama,
+                'kategori_id' => $request->kategori_id,
+                'harga_beli' => $request->harga_beli,
+                'harga_jual' => $request->harga_jual,
+            ]);
+        }
+
 
         return redirect('/barang')->with('success', 'Data barang berhasil diubah');
     }
@@ -185,7 +245,7 @@ class BarangController extends Controller
     {
         $check = BarangModel::find($id);
 
-        if(!$check){
+        if (!$check) {
             return redirect('/barang')->with('error', 'Data barang tidak ditemukan');
         }
 

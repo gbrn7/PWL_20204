@@ -72,16 +72,6 @@
         </div>
       </div>
       <div class="form-group row">
-        <label class="col-1 control-label col-form-label">Kode Penjualan</label>
-        <div class="col-11">
-          <input type="text" class="form-control" id="penjualan_kode" name="penjualan_kode"
-            value="{{ old('penjualan_kode', $penjualan->penjualan_kode) }}" required>
-          @error('penjualan_kode')
-          <small class="form-text text-danger">{{ $message }}</small>
-          @enderror
-        </div>
-      </div>
-      <div class="form-group row">
         <label class="col-1 control-label col-form-label">Tanggal Penjualan</label>
         <div class="col-11">
           <input type="date" class="form-control" id="penjualan_tanggal" name="penjualan_tanggal"

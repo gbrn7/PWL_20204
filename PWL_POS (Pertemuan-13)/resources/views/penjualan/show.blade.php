@@ -40,7 +40,7 @@
         <td>
           <ul>
             @foreach ($penjualanDetail as $item)
-            <li>{{$item->barang->barang_nama}}</li>
+            <li>{{$item->barang->barang_nama}} ({{$item->jumlah}}) : {{$item->jumlah * $item->harga}}</li>
             @endforeach
           </ul>
         </td>

@@ -42,9 +42,9 @@
       <thead>
         <tr>
           <th>ID</th>
+          <th>Kode Penjualan</th>
           <th>Nama User</th>
           <th>Nama Pembeli</th>
-          <th>Kode Penjualan</th>
           <th>Tanggal Penjualan</th>
           <th>Total Penjualan (Rp)</th>
           <th>Aksi</th>
@@ -75,10 +75,15 @@
     },
     columns: [
     {
-    data: "DT_RowIndex", // nomor urut dari laravel datatable addIndexColumn()
+    data: "penjualan_id", // nomor urut dari laravel datatable addIndexColumn()
     className: "text-center",
     orderable: false,
     searchable: false
+    },{
+    data: "penjualan_kode", 
+    className: "",
+    orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
     },{
     data: "nama", 
     className: "",
@@ -89,11 +94,6 @@
     className: "",
     orderable: true, // orderable: true, jika ingin kolom ini bisa diurutkan
     searchable: true // searchable: true, jika ingin kolom ini bisa dicari
-    },{
-    data: "penjualan_kode", 
-    className: "",
-    orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
-    searchable: false // searchable: true, jika ingin kolom ini bisa dicari
     },{
     data: "penjualan_tanggal", 
     className: "",

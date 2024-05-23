@@ -10,6 +10,7 @@ use App\Models\PenjualanModel;
 use App\Models\StokModel;
 use App\Models\userModel;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -32,12 +33,12 @@ class PenjualanController extends Controller
         $user = userModel::all();
 
         return view('penjualan.index', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'user' => $user, 
-        'activeMenu' => $activeMenu,
-        'chart' => $chart->build(),
-        'forecastingChart' => $forecastingChart->build()
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'user' => $user,
+            'activeMenu' => $activeMenu,
+            'chart' => $chart->build(),
+            'forecastingChart' => $forecastingChart->build()
         ]);
     }
 
@@ -46,49 +47,51 @@ class PenjualanController extends Controller
         // $transactions = PenjualanModel::with('user');
         // dd($trans);
 
-        if($request->user_id){
+        if ($request->user_id) {
             // $transactions->where('user_id', $request->user_id);
 
             $transactions = (object) DB::table('t_penjualan as p')
-            ->join('t_penjualan_detail as pd', 'p.penjualan_id','=', 'pd.penjualan_id')
-            ->join('m_user as u', 'p.user_id','=', 'u.user_id')
-            ->selectRaw('p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, p.penjualan_tanggal, sum(pd.harga * pd.jumlah) as total')
-            ->where('p.user_id', $request->user_id)
-            ->groupBy('u.nama')
-            ->groupBy('p.pembeli')
-            ->groupBy('p.penjualan_id')
-            ->groupBy('p.penjualan_kode')
-            ->groupBy('p.penjualan_tanggal')
-            ->get();
-        }else{
+                ->join('t_penjualan_detail as pd', 'p.penjualan_id', '=', 'pd.penjualan_id')
+                ->join('m_user as u', 'p.user_id', '=', 'u.user_id')
+                ->selectRaw("p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, DATE_FORMAT(p.penjualan_tanggal, '%d-%m-%Y') as penjualan_tanggal, sum(pd.harga * pd.jumlah) as total")
+                ->where('p.user_id', $request->user_id)
+                ->groupBy('u.nama')
+                ->groupBy('p.pembeli')
+                ->groupBy('p.penjualan_id')
+                ->groupBy('p.penjualan_kode')
+                ->groupBy('penjualan_tanggal')
+                ->orderBy('p.penjualan_id', 'desc')
+                ->get();
+        } else {
             $transactions = (object) DB::table('t_penjualan as p')
-            ->join('t_penjualan_detail as pd', 'p.penjualan_id','=', 'pd.penjualan_id')
-            ->join('m_user as u', 'p.user_id','=', 'u.user_id')
-            ->selectRaw('p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, p.penjualan_tanggal, sum(pd.harga * pd.jumlah) as total')
-            ->groupBy('u.nama')
-            ->groupBy('p.pembeli')
-            ->groupBy('p.penjualan_id')
-            ->groupBy('p.penjualan_kode')
-            ->groupBy('p.penjualan_tanggal')
-            ->get();
+                ->join('t_penjualan_detail as pd', 'p.penjualan_id', '=', 'pd.penjualan_id')
+                ->join('m_user as u', 'p.user_id', '=', 'u.user_id')
+                ->selectRaw("p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, DATE_FORMAT(p.penjualan_tanggal, '%d-%m-%Y') as penjualan_tanggal, sum(pd.harga * pd.jumlah) as total")
+                ->groupBy('u.nama')
+                ->groupBy('p.pembeli')
+                ->groupBy('p.penjualan_id')
+                ->groupBy('p.penjualan_kode')
+                ->groupBy('penjualan_tanggal')
+                ->orderBy('p.penjualan_id', 'desc')
+                ->get();
         }
 
         return DataTables::of($transactions)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($penjualan) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/penjualan/' . $penjualan->penjualan_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/penjualan/' . $penjualan->penjualan_id.'/printStruk').'" class="btn btn-secondary btn-sm">Print Struk</a> ';
-        $btn .= '<a href="'.url('/penjualan/' . $penjualan->penjualan_id . '/edit').'" 
+            ->addColumn('aksi', function ($penjualan) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/penjualan/' . $penjualan->penjualan_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/printStruk') . '" class="btn btn-secondary btn-sm">Print Struk</a> ';
+                $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/edit') . '" 
         class="btn btn-warning btn-sm">Edit</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/penjualan/'.$penjualan->penjualan_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/penjualan/' . $penjualan->penjualan_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
 
     public function edit(string $id)
@@ -98,7 +101,7 @@ class PenjualanController extends Controller
 
         // dd($penjualanDetail);
 
-        $barang = StokModel::where('stok_jumlah', '>' ,0)->with('barang')->get();
+        $barang = StokModel::where('stok_jumlah', '>', 0)->with('barang')->get();
         $user = UserModel::all();
 
 
@@ -114,9 +117,10 @@ class PenjualanController extends Controller
         $activeMenu = 'penjualan';
 
         return view('penjualan.edit', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'penjualan' => $penjualan,
+            'user' => userModel::all(),
             'penjualanDetail' => $penjualanDetail,
             'barang' => $barang,
             'user' => $user,
@@ -141,8 +145,9 @@ class PenjualanController extends Controller
         $activeMenu = 'penjualan';
 
         return view('penjualan.show', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
+            'user' => userModel::all(),
             'penjualan' => $penjualan,
             'penjualanDetail' => $penjualanDetail,
             'activeMenu' => $activeMenu
@@ -160,56 +165,60 @@ class PenjualanController extends Controller
             'title' => 'Tambah penjualan baru'
         ];
 
-        $barang = StokModel::where('stok_jumlah', '>' ,0)->with('barang')->get();
+        $barang = StokModel::where('stok_jumlah', '>', 0)->with('barang')->get();
         $user = UserModel::all();
 
         $activeMenu = 'penjualan';
 
-        return view('penjualan.create',[
-            'breadcrumb' => $breadcrumb, 
-            'page' => $page, 
-            'barang' => $barang, 
-            'user' => $user, 
+        return view('penjualan.create', [
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'user' => userModel::all(),
+            'barang' => $barang,
+            'user' => $user,
             'activeMenu' => $activeMenu
         ]);
     }
 
     public function store(Request $request)
     {
-
         $request->validate([
-            'barang_id' => 'required|array',
+            'data_checkout' => 'required|string',
             'user_id' => 'required|integer',
             'pembeli' => 'required|string',
-            'penjualan_kode' => 'required|string',
             'penjualan_tanggal' => 'required|date',
         ]);
 
         $barang = BarangModel::all();
-    
 
         DB::beginTransaction();
 
-        $penjualan = penjualanModel::create($request->all());
+        $penjualanKode = 'jual' . Carbon::createFromDate($request->penjualan_tanggal)->format('dmY');
+
+        $penjualan = penjualanModel::create([
+            'user_id' => $request->user_id,
+            'pembeli' => $request->pembeli,
+            'penjualan_kode' => $penjualanKode,
+            'penjualan_tanggal' => $request->penjualan_tanggal,
+        ]);
 
 
-        $barangLaku = $request->only('barang_id');
+        $barangLaku = json_decode($request->data_checkout);
 
-        foreach ($barangLaku['barang_id'] as $key => $item) {
+        foreach ($barangLaku as $key => $item) {
 
             PenjualanDetailModel::create([
                 'penjualan_id' => $penjualan->penjualan_id,
-                'barang_id' => $item[0],
-                'harga' => $barang->find($item[0])->harga_jual,
-                'jumlah' => 1,
+                'barang_id' => $item->barang_id,
+                'harga' => $barang->find($item->barang_id)->harga_jual,
+                'jumlah' => $item->qty,
             ]);
 
-            $stok = stokModel::where('barang_id', $item[0])->with('barang')->first();
-            $stok->decrement('stok_jumlah', 1);
+            $stok = stokModel::where('barang_id', $item->barang_id)->with('barang')->first();
+            if (!$stok) return back()->with('error', 'Stok ' . $stok->barang_nama . ' Tidak tersedia atau belum di inputkan');
+            $stok->decrement('stok_jumlah', $item->qty);
 
-            if($stok->stok_jumlah < 0 ){
-            return back()->with('error', 'Stok '.$stok->barang_nama.' Tidak Mencukupi');
-            }
+            if ($stok->stok_jumlah < 0) return back()->with('error', 'Stok ' . $stok->barang_nama . ' Tidak Mencukupi');
         }
 
         DB::commit();
@@ -221,12 +230,12 @@ class PenjualanController extends Controller
     {
         $check = PenjualanModel::find($id);
 
-        if(!$check){
+        if (!$check) {
             return redirect('/penjualan')->with('error', 'Data penjualan tidak ditemukan');
         }
 
         try {
-            $penjualanDetail = PenjualanDetailModel::where('penjualan_id',$id)->get();
+            $penjualanDetail = PenjualanDetailModel::where('penjualan_id', $id)->get();
 
             foreach ($penjualanDetail as $key => $item) {
                 $item->delete();
@@ -249,20 +258,24 @@ class PenjualanController extends Controller
             'barang_id' => 'nullable|array',
             'user_id' => 'nullable|integer',
             'pembeli' => 'nullable|string',
-            'penjualan_kode' => 'nullable|string',
             'penjualan_tanggal' => 'nullable|date',
         ]);
         DB::beginTransaction();
 
+        $penjualanKode = 'jual' . Carbon::createFromDate($request->penjualan_tanggal)->format('dmY');
 
         $penjualan = PenjualanModel::find($id);
-        $penjualan->update($request->all());
+        $penjualan->update([
+            'user_id' => $request->user_id,
+            'pembeli' => $request->pembeli,
+            'penjualan_kode' => $penjualanKode,
+            'penjualan_tanggal' => $request->penjualan_tanggal,
+        ]);
         $barang = BarangModel::all();
-
 
         $barangLaku = $request->only('barang_id');
 
-        if(count($barangLaku) > 0){
+        if (count($barangLaku) > 0) {
             PenjualanDetailModel::where('penjualan_id', $id)->delete();
 
             foreach ($barangLaku['barang_id'] as $key => $item) {
@@ -273,12 +286,12 @@ class PenjualanController extends Controller
                     'harga' => $barang->find($item[0])->harga_jual,
                     'jumlah' => 1,
                 ]);
-    
+
                 $stok = stokModel::where('barang_id', $item[0])->with('barang')->first();
                 $stok->decrement('stok_jumlah', 1);
-    
-                if($stok->stok_jumlah < 0 ){
-                return back()->with('error', 'Stok '.$stok->barang_nama.' Tidak Mencukupi');
+
+                if ($stok->stok_jumlah < 0) {
+                    return back()->with('error', 'Stok ' . $stok->barang_nama . ' Tidak Mencukupi');
                 }
             }
         }
@@ -296,8 +309,8 @@ class PenjualanController extends Controller
             'transaction' => $transaction,
         ]);
 
-        return response()->streamDownload(function() use($pdf){
+        return response()->streamDownload(function () use ($pdf) {
             echo $pdf->stream();
-        }, 'struk_Transaksi_#'.$transaction->penjualan_kode.'.pdf');
+        }, 'struk_Transaksi_#' . $transaction->penjualan_kode . '.pdf');
     }
 }

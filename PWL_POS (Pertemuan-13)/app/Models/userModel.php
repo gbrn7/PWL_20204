@@ -15,10 +15,13 @@ class userModel extends Authenticatable
     protected $primaryKey = 'user_id';
 
     protected $fillable =  [
-        'user_id', 
-        'level_id', 
-        'username', 
-        'nama', 
+        'user_id',
+        'level_id',
+        'username',
+        'nama',
+        'alamat',
+        'no_ktp',
+        'no_telp',
         'password',
         'profile_img',
         'status'

@@ -14,9 +14,14 @@
         @if (session('error'))
         <div class="alert alert-danger">{{session('error')}}</div>
         @endif
-        @if (auth()->user()->level->level_nama != 'Member')
-        <div class="chart-wrapper container-fluid">
-            {!! $chart->container() !!}
+        @if (auth()->user()->level->level_nama == 'Manager' || auth()->user()->level->level_nama == 'Administrator')
+        <div class="chart-wrapper container-fluid row">
+            <div class="col-6">
+                {!! $barangChart->container() !!}
+            </div>
+            <div class="col-6">
+                {!! $chart->container() !!}
+            </div>
         </div>
         <div class="table-wrapper container-fluid">
             <div class="title">
@@ -78,6 +83,8 @@
 @push('js')
 <script src="{{ $chart->cdn() }}"></script>
 {{ $chart->script() }}
+<script src="{{ $barangChart->cdn() }}"></script>
+{{ $barangChart->script() }}
 <script>
     $(document).ready(function() {
     var dataUser = $('#table_user').DataTable({

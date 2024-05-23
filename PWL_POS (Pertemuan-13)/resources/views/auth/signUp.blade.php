@@ -39,7 +39,7 @@
         <form action="{{route('signUp.storeMember')}}" method="post" enctype="multipart/form-data">
           @csrf
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Full name" name="nama" value="{{old('nama')}}">
+            <input type="text" class="form-control" placeholder="Nama Lengkap" name="nama" value="{{old('nama')}}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Username" name="username" value="{{old('username')}}">
+            <input type="text" class="form-control" placeholder="Alamat" name="alamat" value="{{old('alamat')}}">
             <div class="input-group-append">
               <div class="input-group-text">
                 <span class="fas fa-user"></span>
@@ -55,11 +55,27 @@
             </div>
           </div>
           <div class="input-group mb-3">
-            <input type="file" class="form-control" placeholder="Gambar Profil" name="profile_img"
-              enctype='multipart/form-data'>
+            <input type="text" class="form-control" placeholder="No KTP" name="no_ktp" value="{{old('no_ktp')}}">
             <div class="input-group-append">
               <div class="input-group-text">
-                <span class="fas fa-file"></span>
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="No Telp" name="no_telp" value="{{old('no_telp')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Username" name="username" required
+              value="{{old('username')}}">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
               </div>
             </div>
           </div>
@@ -79,8 +95,16 @@
               </div>
             </div>
           </div>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" placeholder="Gambar Profil" name="profile_img"
+              enctype='multipart/form-data'>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-file"></span>
+              </div>
+            </div>
+          </div>
           <div class="row">
-
             <!-- /.col -->
             <div class="col-12">
               <button type="submit" class="btn btn-primary btn-block">Register</button>

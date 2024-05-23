@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\BarangCategoriesPieChart;
 use App\Charts\MemberRegisterChart;
 use App\Exports\MembersExport;
 use App\Models\userModel;
@@ -13,7 +14,7 @@ use Yajra\DataTables\Facades\DataTables;
 
 class WelcomeController extends Controller
 {
-    public function index(MemberRegisterChart $chart)
+    public function index(MemberRegisterChart $chart, BarangCategoriesPieChart $barangChart)
     {
         $breadcrumb = (object) [
             'title' => 'Selamat Datang',
@@ -22,46 +23,42 @@ class WelcomeController extends Controller
 
         $activeMenu = 'dashboard';
 
-        // return view('welcome', ['breadcrumb' => $breadcrumb, 'activeMenu' => $activeMenu]);
         return view('home.index', [
             'breadcrumb' => $breadcrumb,
             'activeMenu' => $activeMenu,
-            'chart' => $chart->build()
+            'barangChart' => $barangChart->build(),
+            'chart' => $chart->build(),
+            'user' => userModel::all()
         ]);
     }
 
     public function list(Request $request)
     {
-        $users = userModel::with('level')
-                ->whereRelation('level', 'level_nama', 'Member' );
-
-        if($request->level_id){
-            $users->where('level_id', $request->level_id);
-        }
+        $users = userModel::with('level')->orderBy('user_id', 'desc');
 
         return DataTables::of($users)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($user) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/member/' . $user->user_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/member/updateValidation/' . $user->user_id ).'" 
-        class="btn btn-warning btn-sm">'.($user->status == 0 ? 'Validate' : 'Unvalidate' ).'</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/member/'.$user->user_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+            ->addColumn('aksi', function ($user) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/member/' . $user->user_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/member/updateValidation/' . $user->user_id) . '" 
+        class="btn btn-warning btn-sm">' . ($user->status == 0 ? 'Validate' : 'Unvalidate') . '</a> ';
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/member/' . $user->user_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
-    
+
 
     public function exportPdf()
     {
         $members = userModel::with('level')
-        ->whereRelation('level', 'level_nama', 'Member' )
-        ->get();
+            ->whereRelation('level', 'level_nama', 'Member')
+            ->get();
 
 
         $pdf = Pdf::loadView('export_table.memberTable', [
@@ -69,7 +66,7 @@ class WelcomeController extends Controller
             'title' => 'Data Member'
         ]);
 
-        return response()->streamDownload(function() use($pdf){
+        return response()->streamDownload(function () use ($pdf) {
             echo $pdf->stream();
         }, 'Data_Member_PWL_POS.pdf');
     }
@@ -95,10 +92,11 @@ class WelcomeController extends Controller
         $activeMenu = 'dashboard';
 
         return view('home.member', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'member' => $member,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => userModel::all()
         ]);
     }
 
@@ -117,13 +115,13 @@ class WelcomeController extends Controller
     {
         $member = UserModel::find($id);
 
-        if(!$member){
+        if (!$member) {
             return redirect('/user')->with('error', 'Data member tidak ditemukan');
         }
 
         try {
-            if(!empty( $member->profile_img)){        
-                Storage::delete('public/profile/'.$member->profile_img);
+            if (!empty($member->profile_img)) {
+                Storage::delete('public/profile/' . $member->profile_img);
             }
 
             $member->delete();
@@ -133,5 +131,4 @@ class WelcomeController extends Controller
             return redirect('/')->with('/error', 'Data member gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
-
 }

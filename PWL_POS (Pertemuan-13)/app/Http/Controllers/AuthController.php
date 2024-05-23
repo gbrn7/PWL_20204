@@ -17,7 +17,7 @@ class AuthController extends Controller
     {
         return view('auth.signIn');
     }
-    
+
     public function authenticate(Request $request): RedirectResponse //: RedirectResponse is return type
     {
         $credentials = $request->validate([
@@ -27,17 +27,17 @@ class AuthController extends Controller
 
         $user = userModel::where('username', $credentials['username'])->first();
 
-        if(isset($user)){            
-            if($user->status == 0)  return back()->withErrors(['status' => 'Your account has not been validated']);
-        }  
-            
- 
+        if (isset($user)) {
+            if ($user->status == 0)  return back()->withErrors(['status' => 'Your account has not been validated']);
+        }
+
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
- 
+
             return redirect()->route('home.index');
         }
- 
+
         return back()->withErrors([
             'authentication' => 'Your Email/Password invalid',
         ])->onlyInput('username');
@@ -46,11 +46,11 @@ class AuthController extends Controller
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();
-    
+
         $request->session()->invalidate();
-    
+
         $request->session()->regenerateToken();
-    
+
         return redirect()->route('signIn.index');
     }
 
@@ -64,6 +64,9 @@ class AuthController extends Controller
         $newUser = $request->validate([
             'username' => ['required', 'unique:m_user,username'],
             'nama' => ['required'],
+            'alamat' => ['required'],
+            'no_ktp' => ['required'],
+            'no_telp' => ['required'],
             'password' => ['required', 'min:6'],
             'confirm_password' => ['required', 'same:password'],
             'profile_img' => ['required', 'mimes:png,jpg,jpeg', 'max:1024'],
@@ -77,18 +80,17 @@ class AuthController extends Controller
 
             // Store profile image
             $profileImg = $newUser['profile_img'];
-            $profileName = Str::random(10).$newUser['profile_img']->getClientOriginalName();
+            $profileName = Str::random(10) . $newUser['profile_img']->getClientOriginalName();
             $profileImg->storeAs('public/profile', $profileName);
 
 
             // Overide profile_img name
-             $newUser['profile_img'] = $profileName;
-            
+            $newUser['profile_img'] = $profileName;
+
             userModel::create($newUser);
 
             Db::commit();
             return redirect()->route('signIn.index')->with('success', 'Your registration has been saved, but you need to wait for to validation.');
-
         } catch (\Throwable $th) {
             DB::rollback();
 

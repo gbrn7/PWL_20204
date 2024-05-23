@@ -18,23 +18,37 @@ class UserSeeder extends Seeder
             [
                 'level_id' => 1,
                 'username' => 'admin',
-                'nama' => 'Administrator',
                 'password' => Hash::make('12345'),
+                'nama' => 'Administrator',
+                'alamat' => 'Kepanjen',
+                'no_ktp' => '12121232',
+                'no_telp' => '23232',
+                'profile_img' => '1_G1WhZ.png',
                 'status' => 1,
             ],
             [
                 'level_id' => 2,
                 'username' => 'manager',
-                'nama' => 'Manager',
                 'password' => Hash::make('12345'),
+                'nama' => 'Manager',
+                'alamat' => 'Kepanjen',
+                'no_ktp' => '12121232',
+                'no_telp' => '23232',
                 'status' => 1,
+                'profile_img' => '1_G1WhZ.png',
+
             ],
             [
                 'level_id' => 3,
                 'username' => 'staff',
-                'nama' => 'Staff/Kasir',
                 'password' => Hash::make('12345'),
+                'nama' => 'Staff/Kasir',
+                'alamat' => 'Kepanjen',
+                'no_ktp' => '12121232',
+                'no_telp' => '23232',
                 'status' => 1,
+                'profile_img' => '1_G1WhZ.png',
+
             ],
 
         ];

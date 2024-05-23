@@ -24,11 +24,11 @@ class LevelController extends Controller
         $activeMenu = 'level';
 
         return view('level.index', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'activeMenu' => $activeMenu
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'activeMenu' => $activeMenu,
+            'user' => userModel::all()
         ]);
-
     }
 
     public function create()
@@ -44,7 +44,7 @@ class LevelController extends Controller
 
         $activeMenu = 'level';
 
-        return view('level.create',['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
+        return view('level.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'user' => userModel::all()]);
     }
 
     public function list(Request $request)
@@ -52,20 +52,20 @@ class LevelController extends Controller
         $levels = LevelModel::all();
 
         return DataTables::of($levels)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($level) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/level/' . $level->level_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/level/' . $level->level_id . '/edit').'" 
+            ->addColumn('aksi', function ($level) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/level/' . $level->level_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/level/' . $level->level_id . '/edit') . '" 
         class="btn btn-warning btn-sm">Edit</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/level/'.$level->level_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/level/' . $level->level_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
 
     public function store(Request $request)
@@ -96,10 +96,12 @@ class LevelController extends Controller
         $activeMenu = 'level';
 
         return view('level.show', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'level' => $level,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => userModel::all()
+
         ]);
     }
 
@@ -119,10 +121,12 @@ class LevelController extends Controller
         $activeMenu = 'level';
 
         return view('level.edit', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'level' => $level,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => userModel::all()
+
         ]);
     }
 
@@ -143,7 +147,7 @@ class LevelController extends Controller
     {
         $check = LevelModel::find($id);
 
-        if(!$check){
+        if (!$check) {
             return redirect('/user')->with('error', 'Data level tidak ditemukan');
         }
 

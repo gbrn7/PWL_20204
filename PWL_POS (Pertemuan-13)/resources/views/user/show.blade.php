@@ -26,12 +26,24 @@
         <td>{{ $user->username }}</td>
       </tr>
       <tr>
+        <th>Password</th>
+        <td>********</td>
+      </tr>
+      <tr>
         <th>Nama</th>
         <td>{{ $user->nama }}</td>
       </tr>
       <tr>
-        <th>Password</th>
-        <td>********</td>
+        <th>Alamat</th>
+        <td>{{ $user->alamat }}</td>
+      </tr>
+      <tr>
+        <th>No KTP</th>
+        <td>{{ $user->no_ktp }}</td>
+      </tr>
+      <tr>
+        <th>No TELP</th>
+        <td>{{ $user->no_telp }}</td>
       </tr>
       <tr>
         <th>Profile</th>

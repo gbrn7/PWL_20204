@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\KategoriDataTable;
 use App\Http\Requests\StorePostRequest;
 use App\Models\KategoriModel;
+use App\Models\userModel;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,9 +27,10 @@ class KategoriController extends Controller
         $activeMenu = 'kategori';
 
         return view('kategori.index', [
-        'breadcrumb' => $breadcrumb, 
-        'page' => $page, 
-        'activeMenu' => $activeMenu
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'user' => userModel::all(),
+            'activeMenu' => $activeMenu,
         ]);
     }
 
@@ -37,20 +39,20 @@ class KategoriController extends Controller
         $kategoris = KategoriModel::all();
 
         return DataTables::of($kategoris)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-        ->addColumn('aksi', function ($kategori) { // menambahkan kolom aksi
-        $btn = '<a href="'.url('/kategori/' . $kategori->kategori_id).'" class="btn btn-info btn-sm">Detail</a> ';
-        $btn .= '<a href="'.url('/kategori/' . $kategori->kategori_id . '/edit').'" 
+            ->addColumn('aksi', function ($kategori) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/kategori/' . $kategori->kategori_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                $btn .= '<a href="' . url('/kategori/' . $kategori->kategori_id . '/edit') . '" 
         class="btn btn-warning btn-sm">Edit</a> ';
-        $btn .= '<form class="d-inline-block" method="POST" action="'. 
-        url('/kategori/'.$kategori->kategori_id).'">'
-        . csrf_field() . method_field('DELETE') . 
-        '<button type="submit" class="btn btn-danger btn-sm" 
+                $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    url('/kategori/' . $kategori->kategori_id) . '">'
+                    . csrf_field() . method_field('DELETE') .
+                    '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
-        ini?\');">Delete</button></form>'; 
-        return $btn;
-        })
-        ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-        ->make(true);
+        ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
     }
 
     public function create()
@@ -66,16 +68,16 @@ class KategoriController extends Controller
 
         $activeMenu = 'kategori';
 
-        return view('kategori.create',['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu]);
+        return view('kategori.create', ['breadcrumb' => $breadcrumb, 'page' => $page, 'activeMenu' => $activeMenu, 'user' => UserModel::all()]);
     }
 
     public function store(StorePostRequest $request)
     {
-        
+
         $validated = $request->safe()->only(['kategori_kode', 'kategori_nama']);
-        
+
         KategoriModel::create($validated);
-        
+
         return redirect('/kategori');
     }
 
@@ -95,9 +97,10 @@ class KategoriController extends Controller
         $activeMenu = 'kategori';
 
         return view('kategori.edit', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
+            'user' => userModel::all(),
             'activeMenu' => $activeMenu
         ]);
     }
@@ -119,7 +122,7 @@ class KategoriController extends Controller
     {
         $check = KategoriModel::find($id);
 
-        if(!$check){
+        if (!$check) {
             return redirect('/user')->with('error', 'Data kategori tidak ditemukan');
         }
 
@@ -148,11 +151,11 @@ class KategoriController extends Controller
         $activeMenu = 'kategori';
 
         return view('kategori.show', [
-            'breadcrumb' => $breadcrumb, 
+            'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
+            'user' => userModel::all(),
             'activeMenu' => $activeMenu
         ]);
     }
-
 }

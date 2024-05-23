@@ -97,7 +97,7 @@
   <!-- Select2 -->
   <script src="{{asset('adminLte/plugins/select2/js/select2.full.min.js')}}"></script>
   <!-- AdminLTE for demo purposes -->
-  <script src="{{asset('adminLte/dist/js/demo.js')}}"></script>
+  {{-- <script src="{{asset('adminLte/dist/js/demo.js')}}"></script> --}}
   <script>
     $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
   </script>
