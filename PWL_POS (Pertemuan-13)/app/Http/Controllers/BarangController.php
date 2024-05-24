@@ -38,6 +38,30 @@ class BarangController extends Controller
         ]);
     }
 
+    public function indexMember()
+    {
+        $breadcrumb = (object) [
+            'title' => 'Manajemen Barang',
+            'list' => ['Home', 'Barang']
+        ];
+
+        $page = (object) [
+            'title' => 'Daftar Barang yang terdaftar dalam sistem',
+        ];
+
+        $activeMenu = 'barang';
+
+        $kategori = KategoriModel::all();
+
+        return view('barang.indexMember', [
+            'breadcrumb' => $breadcrumb,
+            'page' => $page,
+            'user' => userModel::all(),
+            'kategori' => $kategori,
+            'activeMenu' => $activeMenu
+        ]);
+    }
+
     public function list(Request $request)
     {
         $goods = BarangModel::with('kategori');
@@ -58,6 +82,23 @@ class BarangController extends Controller
                     '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
         ini?\');">Delete</button></form>';
+                return $btn;
+            })
+            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+            ->make(true);
+    }
+
+    public function listForMember(Request $request)
+    {
+        $goods = BarangModel::with('kategori');
+
+        if ($request->kategori_id) {
+            $goods->where('kategori_id', $request->kategori_id);
+        }
+
+        return DataTables::of($goods)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
+            ->addColumn('aksi', function ($barang) { // menambahkan kolom aksi
+                $btn = '<a href="' . url('/barang/forMember/' . $barang->barang_id) . '" class="btn btn-info btn-sm">Detail</a> ';
                 return $btn;
             })
             ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html

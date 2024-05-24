@@ -37,11 +37,11 @@ Route::get('/template', function () {
     return view('layouts.template');
 });
 
-Route::middleware(['auth', ])->group(function () {
+Route::middleware(['auth',])->group(function () {
 
     Route::get('/', [WelcomeController::class, 'index'])->name('home.index');
 
-    Route::group(['prefix' => 'member'], function(){
+    Route::group(['prefix' => 'member', 'middleware' => ['level:Administrator,Manager']], function () {
         Route::post('/list', [WelcomeController::class, 'list'])->name('member.list');
         Route::get('/export-pdf', [WelcomeController::class, 'exportPdf'])->name('member.export.pdf');
         Route::get('/export-excel', [WelcomeController::class, 'exportExcel'])->name('member.export.excel');
@@ -49,8 +49,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/{id}', [WelcomeController::class, 'show'])->name('member.show');
         Route::delete('/{id}', [WelcomeController::class, 'destroy'])->name('member.destroy');
     });
-    
-    Route::group(['prefix' => 'user'], function(){
+
+    Route::group(['prefix' => 'user', 'middleware' => ['level:Administrator,Manager']], function () {
         Route::get('/', [UserController::class, 'index'])->name('user.index');
         Route::post('/list', [UserController::class, 'list'])->name('user.list');
         Route::get('/create', [UserController::class, 'create'])->name('user.create');
@@ -60,8 +60,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/{id}', [UserController::class, 'update'])->name('user.update');
         Route::delete('/{id}', [UserController::class, 'destroy'])->name('user.destroy');
     });
-    
-    Route::group(['prefix' => 'level'], function(){
+
+    Route::group(['prefix' => 'level', 'middleware' => ['level:Administrator,Manager']], function () {
         Route::get('/', [LevelController::class, 'index'])->name('level.index');
         Route::post('/list', [LevelController::class, 'list'])->name('level.list');
         Route::get('/create', [LevelController::class, 'create'])->name('level.create');
@@ -71,8 +71,8 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/{id}', [LevelController::class, 'update'])->name('level.update');
         Route::delete('/{id}', [LevelController::class, 'destroy'])->name('level.destroy');
     });
-    
-    Route::group(['prefix' => 'kategori'], function(){
+
+    Route::group(['prefix' => 'kategori', 'middleware' => ['level:Administrator,Admin']], function () {
         Route::get('/', [KategoriController::class, 'index'])->name('kategori.index');
         Route::post('/list', [KategoriController::class, 'list'])->name('kategori.list');
         Route::get('/create', [KategoriController::class, 'create'])->name('kategori.create');
@@ -82,8 +82,12 @@ Route::middleware(['auth', ])->group(function () {
         Route::put('/{id}', [KategoriController::class, 'update'])->name('kategori.update');
         Route::delete('/{id}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
     });
-    
-    Route::group(['prefix' => 'barang'], function(){
+
+    Route::get('/barang/forMember', [BarangController::class, 'indexMember'])->name('barang.index.member')->middleware('level:Member');
+    Route::post('/barang/listForMember', [BarangController::class, 'listForMember'])->name('barang.list.for.member')->middleware('level:Member');
+    Route::get('/barang/forMember/{id}', [BarangController::class, 'show'])->name('barang.show.member');
+
+    Route::group(['prefix' => 'barang', 'middleware' => ['level:Administrator,Admin']], function () {
         Route::get('/', [BarangController::class, 'index'])->name('barang.index');
         Route::post('/list', [BarangController::class, 'list'])->name('barang.list');
         Route::get('/create', [BarangController::class, 'create'])->name('barang.create');
@@ -91,10 +95,10 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/{id}', [BarangController::class, 'show'])->name('barang.show');
         Route::get('/{id}/edit', [BarangController::class, 'edit'])->name('barang.edit');
         Route::put('/{id}', [BarangController::class, 'update'])->name('barang.update');
-        Route::delete('/{id}', [BarangController::class, 'destroy'])->name('barang.destroy'); 
+        Route::delete('/{id}', [BarangController::class, 'destroy'])->name('barang.destroy');
     });
-    
-    Route::group(['prefix' => 'stok'], function(){
+
+    Route::group(['prefix' => 'stok', 'middleware' => ['level:Administrator,Admin']], function () {
         Route::get('/', [StokController::class, 'index'])->name('stok.index');
         Route::get('/list', [StokController::class, 'list'])->name('stok.list');
         Route::get('/create', [StokController::class, 'create'])->name('stok.create');
@@ -102,10 +106,10 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/{id}', [StokController::class, 'show'])->name('stok.show');
         Route::get('/{id}/edit', [StokController::class, 'edit'])->name('stok.edit');
         Route::put('/{id}', [StokController::class, 'update'])->name('stok.update');
-        Route::delete('/{id}', [StokController::class, 'destroy'])->name('stok.destroy'); 
+        Route::delete('/{id}', [StokController::class, 'destroy'])->name('stok.destroy');
     });
-    
-    Route::group(['prefix' => 'penjualan'], function(){
+
+    Route::group(['prefix' => 'penjualan', 'middleware' => ['level:Administrator,Staff/Kasir']], function () {
         Route::get('/', [PenjualanController::class, 'index'])->name('penjualan.index');
         Route::get('/list', [PenjualanController::class, 'list'])->name('penjualan.list');
         Route::get('/create', [PenjualanController::class, 'create'])->name('penjualan.create');
@@ -113,11 +117,9 @@ Route::middleware(['auth', ])->group(function () {
         Route::get('/{id}', [PenjualanController::class, 'show'])->name('penjualan.show');
         Route::get('/{id}/edit', [PenjualanController::class, 'edit'])->name('penjualan.edit');
         Route::put('/{id}', [PenjualanController::class, 'update'])->name('penjualan.update');
-        Route::delete('/{id}', [PenjualanController::class, 'destroy'])->name('penjualan.destroy'); 
+        Route::delete('/{id}', [PenjualanController::class, 'destroy'])->name('penjualan.destroy');
         Route::get('/{id}/printStruk', [PenjualanController::class, 'printStruk'])->name('penjualan.printStruk');
     });
-    
+
     // Route::resource('m_user', POSController::class);
 });
-
-

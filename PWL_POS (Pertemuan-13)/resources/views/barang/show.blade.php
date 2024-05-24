@@ -29,6 +29,7 @@
         <th>Nama Barang</th>
         <td>{{ $barang->barang_nama }}</td>
       </tr>
+      @if (auth()->user()->level->level_nama != 'Member')
       <tr>
         <th>Harga Beli</th>
         <td>{{ $barang->harga_beli }}</td>
@@ -37,10 +38,12 @@
         <th>Harga Jual</th>
         <td>{{ $barang->harga_jual }}</td>
       </tr>
+      @else
       <tr>
-        <th></th>
+        <th>Harga</th>
         <td>{{ $barang->harga_jual }}</td>
       </tr>
+      @endif
       <tr>
         <th>Gambar</th>
         <td><img src="{{asset('storage/barangImg/'.$barang->image)}}" alt=""></td>

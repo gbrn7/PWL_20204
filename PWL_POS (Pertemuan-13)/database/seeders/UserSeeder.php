@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
         $data = [
             [
                 'level_id' => 1,
-                'username' => 'admin',
+                'username' => 'administrator',
                 'password' => Hash::make('12345'),
                 'nama' => 'Administrator',
                 'alamat' => 'Kepanjen',
@@ -42,13 +42,35 @@ class UserSeeder extends Seeder
                 'level_id' => 3,
                 'username' => 'staff',
                 'password' => Hash::make('12345'),
-                'nama' => 'Staff/Kasir',
+                'nama' => 'Kasir-1',
                 'alamat' => 'Kepanjen',
                 'no_ktp' => '12121232',
                 'no_telp' => '23232',
                 'status' => 1,
                 'profile_img' => '1_G1WhZ.png',
 
+            ],
+            [
+                'level_id' => 4,
+                'username' => 'admin',
+                'password' => Hash::make('12345'),
+                'nama' => 'admin',
+                'alamat' => 'Kepanjen',
+                'no_ktp' => '12121232',
+                'no_telp' => '23232',
+                'status' => 1,
+                'profile_img' => '1_G1WhZ.png',
+            ],
+            [
+                'level_id' => 5,
+                'username' => 'member',
+                'password' => Hash::make('12345'),
+                'nama' => 'member',
+                'alamat' => 'Kepanjen',
+                'no_ktp' => '12121232',
+                'no_telp' => '23232',
+                'status' => 1,
+                'profile_img' => '1_G1WhZ.png',
             ],
 
         ];

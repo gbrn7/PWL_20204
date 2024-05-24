@@ -15,12 +15,14 @@
     @if (session('error'))
     <div class="alert alert-danger">{{session('error')}}</div>
     @endif
+    @if (auth()->user()->level->level_nama == 'Administrator' || auth()->user()->level->level_nama == 'Manager')
     <div class="chart-wrapper container-fluid">
       {!! $chart->container() !!}
     </div>
     <div class="chart-wrapper container-fluid mt-3">
       {!! $forecastingChart->container() !!}
     </div>
+    @endif
     <div class="row">
       <div class="col-md-12">
         <div class="form-group row">

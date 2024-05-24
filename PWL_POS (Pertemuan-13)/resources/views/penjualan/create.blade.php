@@ -37,8 +37,9 @@
               </select>
             </div>
           </div>
+          @if (auth()->user()->level->level_nama == 'Administrator')
           <div class="form-group row">
-            <label class="col-2 control-label col-form-label">User</label>
+            <label class="col-2 control-label col-form-label">Nama Kasir</label>
             <div class="col-10">
               <select class="form-control" id="user_id" name="user_id" required>
                 <option value="">- Pilih User -</option>
@@ -52,6 +53,19 @@
               @enderror
             </div>
           </div>
+          @else
+          <div class="form-group row">
+            <label class="col-2 control-label col-form-label">Nama Kasir</label>
+            <div class="col-10">
+              <select class="form-control" id="user_id" name="user_id" required>
+                <option value="{{ auth()->user()->user_id }}">{{auth()->user()->nama}}</option>
+              </select>
+              @error('user_id')
+              <small class="form-text text-danger">{{ $message }}</small>
+              @enderror
+            </div>
+          </div>
+          @endif
           <div class="form-group row">
             <label class="col-2 control-label col-form-label">Nama Pembeli</label>
             <div class="col-10">

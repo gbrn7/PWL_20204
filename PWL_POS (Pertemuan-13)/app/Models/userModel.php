@@ -42,4 +42,13 @@ class userModel extends Authenticatable
     {
         return $this->belongsTo(LevelModel::class, 'level_id', 'level_id');
     }
+
+    public function hasLevel($level)
+    {
+        if ($level == $this->level->level_nama) {
+            return true;
+        }
+
+        return false;
+    }
 }
