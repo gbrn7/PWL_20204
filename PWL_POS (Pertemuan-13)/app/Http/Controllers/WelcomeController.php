@@ -23,6 +23,7 @@ class WelcomeController extends Controller
 
         $activeMenu = 'dashboard';
 
+
         return view('home.index', [
             'breadcrumb' => $breadcrumb,
             'activeMenu' => $activeMenu,

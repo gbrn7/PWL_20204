@@ -40,6 +40,7 @@ class AuthController extends Controller
 
         return back()->withErrors([
             'authentication' => 'Your Email/Password invalid',
+            'authentication2' => 'Your Email/Password invalid new',
         ])->onlyInput('username');
     }
 

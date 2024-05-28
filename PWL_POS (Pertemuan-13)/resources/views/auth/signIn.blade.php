@@ -44,6 +44,8 @@
         </div>
         @endif
 
+        {{-- @dd($errors->all()) --}}
+
         <form action="{{route('signIn.authenticate')}}" method="post">
           @csrf
           <div class="input-group mb-3">
