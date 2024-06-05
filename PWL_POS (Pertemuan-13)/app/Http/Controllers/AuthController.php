@@ -40,7 +40,6 @@ class AuthController extends Controller
 
         return back()->withErrors([
             'authentication' => 'Your Email/Password invalid',
-            'authentication2' => 'Your Email/Password invalid new',
         ])->onlyInput('username');
     }
 
@@ -87,6 +86,7 @@ class AuthController extends Controller
 
             // Overide profile_img name
             $newUser['profile_img'] = $profileName;
+            $newUser['password'] = bcrypt($request->password);
 
             userModel::create($newUser);
 

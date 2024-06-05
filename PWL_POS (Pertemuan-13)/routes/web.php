@@ -109,7 +109,7 @@ Route::middleware(['auth',])->group(function () {
         Route::delete('/{id}', [StokController::class, 'destroy'])->name('stok.destroy');
     });
 
-    Route::group(['prefix' => 'penjualan', 'middleware' => ['level:Administrator,Staff/Kasir']], function () {
+    Route::group(['prefix' => 'penjualan', 'middleware' => ['level:Administrator,Staff/Kasir,Member,Manager']], function () {
         Route::get('/', [PenjualanController::class, 'index'])->name('penjualan.index');
         Route::get('/list', [PenjualanController::class, 'list'])->name('penjualan.list');
         Route::get('/create', [PenjualanController::class, 'create'])->name('penjualan.create');

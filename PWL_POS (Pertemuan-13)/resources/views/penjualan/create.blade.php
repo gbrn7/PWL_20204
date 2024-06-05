@@ -43,7 +43,7 @@
             <div class="col-10">
               <select class="form-control" id="user_id" name="user_id" required>
                 <option value="">- Pilih User -</option>
-                @foreach($user as $item)
+                @foreach($kasir as $item)
                 <option value="{{ $item->user_id }}">{{ $item->nama
                   }}</option>
                 @endforeach
@@ -69,7 +69,13 @@
           <div class="form-group row">
             <label class="col-2 control-label col-form-label">Nama Pembeli</label>
             <div class="col-10">
-              <input type="text" class="form-control" id="pembeli" name="pembeli" value="{{ old('pembeli') }}" required>
+              <select class="form-control" id="pembeli" name="pembeli" required>
+                <option value="">- Pilih Member -</option>
+                @foreach($member as $item)
+                <option value="{{ $item->username }}">{{ $item->nama
+                  }}</option>
+                @endforeach
+              </select>
               @error('pembeli')
               <small class="form-text text-danger">{{ $message }}</small>
               @enderror

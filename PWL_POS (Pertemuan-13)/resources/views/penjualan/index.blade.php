@@ -4,8 +4,10 @@
   <div class="card-header">
     <h3 class="card-title">{{ $page->title }}</h3>
     <div class="card-tools">
+      @if (auth()->user()->level->level_nama != 'Member')
       <a class="btn btn-sm btn-primary mt-1" href="{{ url('penjualan/create') 
 }}">Tambah</a>
+      @endif
     </div>
   </div>
   <div class="card-body">
@@ -23,6 +25,7 @@
       {!! $forecastingChart->container() !!}
     </div>
     @endif
+    @if (auth()->user()->level->level_nama != 'Member')
     <div class="row">
       <div class="col-md-12">
         <div class="form-group row">
@@ -39,6 +42,7 @@
         </div>
       </div>
     </div>
+    @endif
 
     <table class="table table-bordered table-striped table-hover table-sm" id="table_penjualan">
       <thead>

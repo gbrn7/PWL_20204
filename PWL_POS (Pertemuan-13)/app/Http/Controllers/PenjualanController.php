@@ -63,35 +63,70 @@ class PenjualanController extends Controller
                 ->orderBy('p.penjualan_id', 'desc')
                 ->get();
         } else {
-            $transactions = (object) DB::table('t_penjualan as p')
-                ->join('t_penjualan_detail as pd', 'p.penjualan_id', '=', 'pd.penjualan_id')
-                ->join('m_user as u', 'p.user_id', '=', 'u.user_id')
-                ->selectRaw("p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, DATE_FORMAT(p.penjualan_tanggal, '%d-%m-%Y') as penjualan_tanggal, sum(pd.harga * pd.jumlah) as total")
-                ->groupBy('u.nama')
-                ->groupBy('p.pembeli')
-                ->groupBy('p.penjualan_id')
-                ->groupBy('p.penjualan_kode')
-                ->groupBy('penjualan_tanggal')
-                ->orderBy('p.penjualan_id', 'desc')
-                ->get();
+
+            if (auth()->user()->level->level_nama == 'Member') {
+                $transactions = (object) DB::table('t_penjualan as p')
+                    ->join('t_penjualan_detail as pd', 'p.penjualan_id', '=', 'pd.penjualan_id')
+                    ->join('m_user as u', 'p.user_id', '=', 'u.user_id')
+                    ->selectRaw("p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, DATE_FORMAT(p.penjualan_tanggal, '%d-%m-%Y') as penjualan_tanggal, sum(pd.harga * pd.jumlah) as total")
+                    ->where('p.pembeli', auth()->user()->username)
+                    ->groupBy('u.nama')
+                    ->groupBy('p.pembeli')
+                    ->groupBy('p.penjualan_id')
+                    ->groupBy('p.penjualan_kode')
+                    ->groupBy('penjualan_tanggal')
+                    ->orderBy('p.penjualan_id', 'desc')
+                    ->get();
+            } else {
+                $transactions = (object) DB::table('t_penjualan as p')
+                    ->join('t_penjualan_detail as pd', 'p.penjualan_id', '=', 'pd.penjualan_id')
+                    ->join('m_user as u', 'p.user_id', '=', 'u.user_id')
+                    ->selectRaw("p.penjualan_id,u.nama, p.pembeli, p.penjualan_kode, DATE_FORMAT(p.penjualan_tanggal, '%d-%m-%Y') as penjualan_tanggal, sum(pd.harga * pd.jumlah) as total")
+                    ->groupBy('u.nama')
+                    ->groupBy('p.pembeli')
+                    ->groupBy('p.penjualan_id')
+                    ->groupBy('p.penjualan_kode')
+                    ->groupBy('penjualan_tanggal')
+                    ->orderBy('p.penjualan_id', 'desc')
+                    ->get();
+            }
         }
 
-        return DataTables::of($transactions)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
-            ->addColumn('aksi', function ($penjualan) { // menambahkan kolom aksi
-                $btn = '<a href="' . url('/penjualan/' . $penjualan->penjualan_id) . '" class="btn btn-info btn-sm">Detail</a> ';
-                $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/printStruk') . '" class="btn btn-secondary btn-sm">Print Struk</a> ';
-                $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/edit') . '" 
-        class="btn btn-warning btn-sm">Edit</a> ';
-                $btn .= '<form class="d-inline-block" method="POST" action="' .
-                    url('/penjualan/' . $penjualan->penjualan_id) . '">'
-                    . csrf_field() . method_field('DELETE') .
-                    '<button type="submit" class="btn btn-danger btn-sm" 
+        if (auth()->user()->level->level_nama == 'Member') {
+            return DataTables::of($transactions)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
+                ->addColumn('aksi', function ($penjualan) { // menambahkan kolom aksi
+                    $btn = '<a href="' . url('/penjualan/' . $penjualan->penjualan_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                    $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/printStruk') . '" class="btn btn-secondary btn-sm">Print Struk</a> ';
+                    // $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/edit') . '" 
+                    // class="btn btn-warning btn-sm">Edit</a> ';
+                    //             $btn .= '<form class="d-inline-block" method="POST" action="' .
+                    //                 url('/penjualan/' . $penjualan->penjualan_id) . '">'
+                    //                 . csrf_field() . method_field('DELETE') .
+                    //                 '<button type="submit" class="btn btn-danger btn-sm" 
+                    // onclick="return confirm(\'Apakah Anda yakit menghapus data 
+                    // ini?\');">Delete</button></form>';
+                    return $btn;
+                })
+                ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+                ->make(true);
+        } else {
+            return DataTables::of($transactions)->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex)
+                ->addColumn('aksi', function ($penjualan) { // menambahkan kolom aksi
+                    $btn = '<a href="' . url('/penjualan/' . $penjualan->penjualan_id) . '" class="btn btn-info btn-sm">Detail</a> ';
+                    $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/printStruk') . '" class="btn btn-secondary btn-sm">Print Struk</a> ';
+                    // $btn .= '<a href="' . url('/penjualan/' . $penjualan->penjualan_id . '/edit') . '" 
+                    // class="btn btn-warning btn-sm">Edit</a> ';
+                    $btn .= '<form class="d-inline-block" method="POST" action="' .
+                        url('/penjualan/' . $penjualan->penjualan_id) . '">'
+                        . csrf_field() . method_field('DELETE') .
+                        '<button type="submit" class="btn btn-danger btn-sm" 
         onclick="return confirm(\'Apakah Anda yakit menghapus data 
         ini?\');">Delete</button></form>';
-                return $btn;
-            })
-            ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
-            ->make(true);
+                    return $btn;
+                })
+                ->rawColumns(['aksi']) // memberitahu bahwa kolom aksi adalah html
+                ->make(true);
+        }
     }
 
     public function edit(string $id)
@@ -166,14 +201,17 @@ class PenjualanController extends Controller
         ];
 
         $barang = StokModel::where('stok_jumlah', '>', 0)->with('barang')->get();
-        $user = UserModel::all();
+        $user = UserModel::with('level')->get();
+        $kasir = $user->where('level.level_nama', '==', 'Staff/Kasir');
+        $member = $user->where('level.level_nama', '==', 'Member');
 
         $activeMenu = 'penjualan';
 
         return view('penjualan.create', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'user' => userModel::all(),
+            'kasir' => $kasir,
+            'member' => $member,
             'barang' => $barang,
             'user' => $user,
             'activeMenu' => $activeMenu

@@ -66,8 +66,7 @@
       </li>
       @endif
       @endif
-      @if (auth()->user()->level->level_nama == 'Administrator' || auth()->user()->level->level_nama == 'Staff/Kasir' ||
-      auth()->user()->level->level_nama == 'Manager')
+      @if (auth()->user()->level->level_nama != 'Admin')
       <li class="nav-header">Data Transaksi</li>
       <li class="nav-item">
         <a href="{{ url('/penjualan') }}" class="nav-link {{ ($activeMenu ==

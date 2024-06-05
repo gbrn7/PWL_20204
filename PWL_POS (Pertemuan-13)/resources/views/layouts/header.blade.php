@@ -19,9 +19,9 @@
     <li class="nav-item dropdown">
       <a class="nav-link" data-toggle="dropdown" href="#">
         <i class="far fa-bell"></i>
-        <span class="badge badge-warning navbar-badge">{{$user->where('status', false)->count() > 0 ?
-          $user->where('status', false)->count() : '' }}</span>
-
+        @if ($user->where('status', false)->count() > 0)
+        <span class="badge badge-warning navbar-badge">{{$user->where('status', false)->count() > 0}}</span>
+        @endif
       </a>
       <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
         <span class="dropdown-item dropdown-header">User Validation Notifications</span>

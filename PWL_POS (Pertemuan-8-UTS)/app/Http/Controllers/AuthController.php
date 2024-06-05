@@ -8,6 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 
@@ -96,5 +98,35 @@ class AuthController extends Controller
                 'error' => $th->getMessage(),
             ]);
         }
+    }
+
+    public function proses_register(Request $request)
+    {
+        //kita buat validasi nih buat proses register
+        //validasinya yaitu semua field wajib di isi
+        //validasi username itu harus unique atau tidak boleh duplicate username ya
+        $validator = Validator::make($request->all(), [
+            'nama' => 'required',
+            'username' => 'required|unique:m_user',
+            'password' => 'required'
+        ]);
+
+        //kalau gagal kembali ke halaman register dengan munculkan pesan error
+        if ($validator->fails()) {
+            return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $newUser = $request->all();
+        $newUser['level_id'] = '2';
+        //kalau berhasil isi level & hash passwordnya ya biar secure
+        $newUser['password'] = Hash::make($request->password);
+
+        //masukkan semua data pada request ke table user
+        UserModel::create($newUser);
+
+        //kalo berhasil arahkan ke halaman login
+        return redirect()->route('login');
     }
 }
