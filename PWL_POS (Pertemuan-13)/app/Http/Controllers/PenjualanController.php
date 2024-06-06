@@ -228,10 +228,9 @@ class PenjualanController extends Controller
         ]);
 
         $barang = BarangModel::all();
+        $latestData = PenjualanModel::latest()->first();
 
-        DB::beginTransaction();
-
-        $penjualanKode = 'jual' . Carbon::createFromDate($request->penjualan_tanggal)->format('dmY');
+        $penjualanKode = 'jual' . (($latestData->penjualan_id) + 1) . Carbon::createFromDate($request->penjualan_tanggal)->format('dmY');
 
         $penjualan = penjualanModel::create([
             'user_id' => $request->user_id,

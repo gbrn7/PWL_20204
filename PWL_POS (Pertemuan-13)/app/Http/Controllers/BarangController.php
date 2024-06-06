@@ -150,7 +150,7 @@ class BarangController extends Controller
 
         $kategori = KategoriModel::find($request->kategori_id);
         $dateNow = Carbon::now()->format('dmY');
-        $barangKategori = (BarangModel::where('kategori_id', $request->kategori_id)->count()) + 1;
+        $barangKategori = (BarangModel::latest()->first())->barang_id + 1;
 
         $barangKode = $kategori->kategori_kode . ($barangKategori < 10 ? ('0' . $barangKategori) : $barangKategori) . '/' . $dateNow;
 
