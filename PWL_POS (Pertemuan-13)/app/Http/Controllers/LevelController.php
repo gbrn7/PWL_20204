@@ -156,7 +156,7 @@ class LevelController extends Controller
 
             return redirect('/level')->with('success', 'Data level berhasil dihapus');
         } catch (\Throwable $th) {
-            return redirect('/level')->with('/error', 'Data level gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
+            return redirect('/level')->with('error', 'Data level gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
 }

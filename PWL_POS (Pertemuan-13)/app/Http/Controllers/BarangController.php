@@ -295,7 +295,7 @@ class BarangController extends Controller
 
             return redirect('/barang')->with('success', 'Data barang berhasil dihapus');
         } catch (\Throwable $th) {
-            return redirect('/barang')->with('/error', 'Data barang gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
+            return redirect('/barang')->with('error', 'Data barang gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
 }

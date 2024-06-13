@@ -102,8 +102,8 @@ class BarangSeeder extends Seeder
         for ($i = 0; $i < count($data); $i++) {
             $kategori = KategoriModel::find($data[$i]['kategori_id']);
             $dateNow = Carbon::now()->format('dmY');
-            $barangKategori = (BarangModel::where('kategori_id', $data[$i]['kategori_id'])->count()) + 1;
-            $data[$i]['barang_kode'] = $kategori->kategori_kode . ($barangKategori < 10 ? ('0' . $barangKategori) : $barangKategori) . '/' . $dateNow;
+            $barangKategori = 1 + $i;
+            $data[$i]['barang_kode'] = $kategori->kategori_kode . ($barangKategori < 10 ? ('0' . $barangKategori) : $barangKategori) . '-' . $dateNow;
 
             BarangModel::create($data[$i]);
         }

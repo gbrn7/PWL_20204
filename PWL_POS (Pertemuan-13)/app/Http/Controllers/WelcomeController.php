@@ -129,7 +129,7 @@ class WelcomeController extends Controller
 
             return redirect('/')->with('success', 'Data member berhasil dihapus');
         } catch (\Throwable $th) {
-            return redirect('/')->with('/error', 'Data member gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
+            return redirect('/')->with('error', 'Data member gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }
     }
 }
